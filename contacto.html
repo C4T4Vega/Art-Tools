@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Tools - Contacto</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="cabecera">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/artTools_v2.png" alt="Art Tools">
+                    <h1>Art Tools</h1>
+                </a>
+            </div>
+            <div class="content-menu">
+                <ul class="menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="informacion.html">Nosotros</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+                <a class="carrito-nav" href="carrito.html">
+                    <img src="img/carrito-de-compras.png" alt="Carrito">
+                    <span class="carrito-count oculto">0</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="hero-contacto">
+            <h2>¡Contáctanos!</h2>
+            <p>¿Tienes dudas sobre un producto o tu pedido? Escribenos!</p>
+        </section>
+        <section class="seccion-contacto">
+            <div class="datos-contacto">
+                <div><strong>Correo</strong> contacto@arttools.cl</div>
+                <div><strong>Teléfono</strong>+56 1234 5678</div>
+                <div><strong>Horario de Atención</strong>Lun. a Vie. 9:00 - 18:00</div>
+            </div>
+            <form id="form-contacto" class="form-card" novalidate>
+                <div class="alerta oculto" id="alerta-contacto"></div>
+                <div class="campo">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Nombre" maxlength="100">
+                    <span class="mensaje-error" id="error-nombre"></span>
+                </div>
+                <div class="campo">
+                    <label for="correo">Correo <span class="opcional-tag">(opcional)</span></label>
+                    <input type="text" id="correo" name="correo" placeholder="john.doe@gmail.com">
+                    <span class="mensaje-error" id="error-correo"></span>
+                </div>
+                <div class="campo">
+                    <label for="comentario">Comentarios</label>
+                    <textarea id="comentario" name="comentario" placeholder="Escriba su comentario" maxlength="500"></textarea>
+                    <span class="mensaje-error" id="error-comentario"></span>
+                </div>
+                <div class="form-acciones">
+                    <button type="submit">Enviar</button>
+                </div>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-cont">
+            <a class="footer-logo" href="index.html">
+                <img src="img/artTools_v2.png" alt="logo art tools">
+                <h2>Art Tools</h2>
+            </a>
+            <ul>
+                <li><a href="informacion.html">Nosotros</a></li>
+                <li><a href="#"></a>Contáctanos</li>
+                <li><a href="#"></a>Blog</li>
+            </ul>
+        </div>
+        <p>&copy; 2026 Art Tools</p>
+    </footer>
+    <script src="#"></script>
+</body>
+</html>

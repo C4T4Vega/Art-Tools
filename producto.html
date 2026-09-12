@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Art Tools - Corchetera negra B4 Torre</title>
-    <link rel="stylesheet" href="css/style_producto.css"/>
+    <title>Art Tools - Detalle de producto</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
@@ -13,11 +12,10 @@
     <header>
         <nav class="cabecera">
             <div class="logo">
-                <h1>
-                    <a href="index.html">
-                        <img src="img/logo.png" alt="Art Tools"/>
-                    </a>
-                </h1>
+                <a href="index.html">
+                    <img src="img/artTools_v2.png" alt="">
+                    <h1>Art Tools</h1>
+                </a>
             </div>
             <div class="content-menu">
                 <ul class="menu">
@@ -34,73 +32,73 @@
                         </details>
                     </li>
                     <li><a href="productos.html">Productos</a></li>
-                    <li><a href="informacion.html">Información</a></li>
+                    <li><a href="#">Blogs</a></li>
+                    <li><a href="informacion.html">Nosotros</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
                 </ul>
                 <div class="buscar">
-                <form action="/busqueda" method="get">
-                <img src="img/lupa.png" alt="" aria-hidden="true"/>
-                <label for="busqueda">Buscar</label>
-                <input type="text" id="busqueda" 
-                    name="barraBusqueda" placeholder="Pinturas acrilicas">
-                </form>
+                    <form action="/busqueda" method="get">
+                        <img src="img/lupa.png" alt="" aria-hidden="true">
+                        <label for="busqueda">Buscar</label>
+                        <input type="text" id="busqueda"
+                            name="barraBusqueda" placeholder="Pinturas acrilicas">
+                    </form>
                 </div>
-                <a class="carrito" href="carrito.html">
-                <img src="img/carrito-de-compras.png" alt="Carrito"/>
-            </a>
+                <div class="auth-area" id="auth-area"></div>
+                <a class="carrito-nav" href="carrito.html">
+                    <img src="img/carrito-de-compras.png" alt="Carrito">
+                    <span class="carrito-count oculto">0</span>
+                </a>
             </div>
         </nav>
     </header>
     <main>
-        <div class="volver">      
-            <a class="volver" href="#">
-                <img src="img/flecha.png" alt="regresar"/>Volver</a>
+        <div class="volver">
+            <a href="productos.html">
+                <img src="img/flecha.png" alt="regresar">Volver
+            </a>
         </div>
         <section class="detalle-producto">
             <div class="imagen-producto">
-                <img src="img/productos/corchetera.jpg" alt="Corchetera negra B4 Torre"/>
+                <img id="img-producto" src="" alt="">
             </div>
-            <div class="producto-info">
-                <h2>Corchetera negra B4 Torre</h2>
-                <p class="precio">$5.690</p>
-                <p class="descripcion">Corchetera negra B4 Torre, 
-                    ideal para trabajos escolares, oficina y para lo que necesites organizar.
-                </p>
+            <div class="producto-info" id="detalle-producto-info">
+                <p class="categoria-tag" id="categoria-producto"></p>
+                <h2 id="nombre-producto"></h2>
+                <p class="precio" id="precio-producto"></p>
+                <p class="descripcion" id="descripcion-producto-corta"></p>
+                <p class="stock-info" id="stock-info"></p>
                 <div class="cantidad">
-                <label for="cantidad">Cantidad</label>
-                    <input
-                        type="number"
-                        id="cantidad"
-                        name="cantidad"
-                        value="1"
-                        min="1">
+                    <label for="cantidad">Cantidad</label>
+                    <input type="number" id="cantidad" name="cantidad" value="1" min="1">
                 </div>
-                <button type="button">Agregar al carrito</button>
-            </div>       
+                <button type="button" id="btn-agregar-detalle">Agregar al carrito</button>
+                <p class="mensaje-carrito" id="mensaje-carrito"></p>
+            </div>
         </section>
         <section class="descripcion-producto">
             <h2>Descripción del producto</h2>
-            <p>
-                La corchetera negra B4 Torre es una alternativa
-                práctica para trabajos escolares, actividades
-                de oficina y uso cotidiano.
-            </p>
-            <p>
-                Su diseño permite organizar y unir documentos
-                de manera sencilla.
-            </p>
+            <p id="descripcion-producto-larga"></p>
+        </section>
+        <section class="relacionados">
+            <h2>Productos relacionados</h2>
+            <div class="relacionados-grid" id="grid-relacionados"></div>
         </section>
     </main>
     <footer>
         <div class="footer-cont">
-            <a href="index.html">
-                <img src="img/logo.png" alt="Art Tools" />
+            <a class="footer-logo" href="index.html">
+                <img src="img/artTools_v2.png" alt="logo art tools">
+                <h2>Art Tools</h2>
             </a>
             <ul>
                 <li><a href="informacion.html">Nosotros</a></li>
-                <li><a href="informacion.html">Contáctanos</a></li>
+                <li><a href="#"></a>Contáctanos</li>
+                <li><a href="#"></a>Blog</li>
             </ul>
         </div>
         <p>&copy; 2026 Art Tools</p>
     </footer>
+    <script src="#"></script>
 </body>
 </html>

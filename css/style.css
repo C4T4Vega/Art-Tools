@@ -20,8 +20,16 @@ header {
     background-color: #77942e;
 }
 
+.logo a {
+    display: flex;
+    color: #ffff;
+    font-size: 16px;
+    align-items: center;
+    gap: 10px;
+}
+
 .logo img {
-    width: 90px;/*maneja el ancho*/
+    width: 80px;/*maneja el ancho*/
     height: auto;/*calcula para mantener la proporción*/
 }
 
@@ -160,7 +168,7 @@ header {
 
 .productos-destacados {
     padding: 50px 40px;   
-    background-color: #f0eeee;
+    background-color: #ffff;
 }
 
 .productos-destacados  h2 {
@@ -173,21 +181,28 @@ header {
 .productos-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 25px;
+    gap: 40px;
 }
 
 .producto-card {
     padding: 20px;
-    border: 1px solid #ffff;
+    border: 1px solid #e0e0e0;
     border-radius: 10px;
     text-align: center;
     background-color: #ffff;
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative; 
+    z-index: 1; /* Nivel base */
 }
 
 .producto-card img {
     width: 200px;
     height: 200px;
     object-fit: contain;
+    align-self: center;
 }
 
 .producto-card a {
@@ -195,30 +210,49 @@ header {
     color: inherit;
 }
 
-.producto-card {
-    transition: transform 0.2s;
+.producto-card h3 {
+    margin: 15px 0 10px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.4em;
+    min-height: 1.4em;
+
 }
 
 .producto-card:hover {
     transform: translateY(-5px);
-}
-.producto-card h3 {
-    margin: 15px 0 10px;
-}
-
-.producto-card .precio {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 15px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);
+    z-index: 10;
 }
 
+.producto-card:hover h3 {
+display: block;
+    position: absolute;
+    top: 225px; /* Calculado exacto debajo de tu imagen */
+    left: 10px;
+    right: 10px;
+    height: auto; 
+    z-index: 20; 
+    padding: 10px;
+    border-radius: 5px;
+}
 .producto-card button {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    align-self: center;    
+    margin-top: 0;
 }
-
+.producto-card .precio {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    margin-top: auto;
+}
 footer {
     background-color: #3b3b3b;
     color: #ffff;
@@ -241,7 +275,14 @@ footer {
 
 .footer-cont a {
     color: #ffff;
-    text-decoration: none;
+    text-decoration: none;    
+    display: flex;
+    align-items: center;
+    gap:10px;    
+}
+
+.footer-cont h1 {
+    font-size: 20px;
 }
 
 .footer-cont img {

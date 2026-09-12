@@ -4,21 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Art Tools - Nosotros</title>
-    <link rel="stylesheet" href="css/style_info.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
-</head>
 </head>
 <body>
     <header>
         <nav class="cabecera">
             <div class="logo">
-                <h1>
-                    <a href="index.html">
-                        <img src="img/logo.png" alt="Art Tools"/>
-                    </a>
-                </h1>
+                <a href="index.html">
+                    <img src="img/artTools_v2.png" alt="">
+                    <h1>Art Tools</h1>
+                </a>
             </div>
             <div class="content-menu">
                 <ul class="menu">
@@ -35,99 +32,82 @@
                         </details>
                     </li>
                     <li><a href="productos.html">Productos</a></li>
+                    <li><a href="#">Blogs</a></li>
+                    <li><a href="informacion.html">Nosotros</a></li>
+                    <li><a href="#">Contacto</a></li>
                 </ul>
                 <div class="buscar">
-                <form action="/busqueda" method="get">
-                <img src="img/lupa.png" alt="" aria-hidden="true"/>
-                <label for="busqueda">Buscar</label>
-                <input type="text" id="busqueda" 
-                    name="barraBusqueda" placeholder="Pinturas acrilicas">
-                </form>
+                    <form action="/busqueda" method="get">
+                        <img src="img/lupa.png" alt="" aria-hidden="true">
+                        <label for="busqueda">Buscar</label>
+                        <input type="text" id="busqueda"
+                            name="barraBusqueda" placeholder="Pinturas acrilicas">
+                    </form>
                 </div>
-                <a class="carrito" href="carrito.html">
-                <img src="img/carrito-de-compras.png" alt="Carrito"/>
-            </a>
+                <div class="auth-area" id="auth-area"></div>
+                <a class="carrito-nav" href="carrito.html">
+                    <img src="img/carrito-de-compras.png" alt="Carrito">
+                    <span class="carrito-count oculto">0</span>
+                </a>
             </div>
         </nav>
     </header>
     <main>
         <section class="hero-info">
-        <div class="contenido">
-            <section class="somos">
-                <h2>¿Quiénes somos?</h2>
-                <p>Art Tools nació como una iniciativa apasionada orientada a dar vida a un espacio digital 
-                    especializado: una librería online concebida para reunir, en un solo lugar, la más amplia
-                    variedad de insumos y herramientas dedicados a las artes plásticas, el diseño y la papelería 
-                    técnica y creativa. Desde nuestros inicios, nos propusimos ir más allá de la venta tradicional,
-                    construyendo un catálogo diverso que responda a las necesidades de creadores, estudiantes y
-                    entusiastas por igual.
-                </p>      
-            </section>
-            <section class="proposito">
-                <h2>Nuestro propósito</h2>
-                <p>Nos mueve la misión de simplificar la búsqueda y adquisición de materiales 
-                    esenciales para cualquier tipo de proyecto. Entendemos que cada idea requiere 
-                    la herramienta adecuada, por lo que abarcamos desde insumos escolares esenciales 
-                    hasta equipamiento especializado para oficinas y entornos profesionales. 
-                    Buscamos brindar una experiencia de compra intuitiva, rápida y metódicamente organizada, 
-                    consolidándonos como una alternativa confiable, práctica e indispensable para acompañar 
-                    el desarrollo continuo de tus actividades creativas y cotidianas.
-                </p>  
-            </section>
-            <section class="contacto">
-                <h2>¡Contáctanos!</h2>
-                <form action="/formulario" method="post">
-                <div class="campo">
-                    <label for="nombre">Nombre</label>
-                    <input 
-                        type="text" 
-                        id="nombre" 
-                        name="nombre"
-                        placeholder="Nombre"
-                        required>
-                </div>
-                <div class="campo">
-                    <label for="apellido">Apellido</label>
-                    <input 
-                        type="text" 
-                        id="apellido" 
-                        name="apellido"
-                        placeholder="Apellido"
-                        required>
-                </div>
-                <div class="campo">
-                    <label for="email">Correo</label>
-                    <input 
-                        type="email" 
-                        id="email" 
-                        name="correo" 
-                        placeholder="ejemplo@gmail.com"
-                        required>
-                </div>
-                <div class="campo">
-                    <label for="comentario">Comentarios</label>
-                    <textarea 
-                        id="comentario" 
-                        name="comentario" 
-                        placeholder="Escriba su comentario"
-                        required></textarea>
-                </div>
-                <button type="submit">Enviar</button>
-            </form>
-        </section>   
-        </div>    
+            <div class="contenido">
+                <section class="somos">
+                    <h2>¿Quiénes somos?</h2>
+                    <p>Art Tools nació como una iniciativa apasionada orientada a dar vida a un espacio digital
+                        especializado: una librería online concebida para reunir, en un solo lugar, la más amplia
+                        variedad de insumos y herramientas dedicados a las artes plásticas, el diseño y la papelería
+                        técnica y creativa. Desde nuestros inicios, nos propusimos ir más allá de la venta tradicional,
+                        construyendo un catálogo diverso que responda a las necesidades de creadores, estudiantes y
+                        entusiastas por igual.</p>
+                </section>
+                <section class="proposito">
+                    <h2>Nuestro propósito</h2>
+                    <p>Nos mueve la misión de simplificar la búsqueda y adquisición de materiales
+                        esenciales para cualquier tipo de proyecto. Entendemos que cada idea requiere
+                        la herramienta adecuada, por lo que abarcamos desde insumos escolares esenciales
+                        hasta equipamiento especializado para oficinas y entornos profesionales.
+                        Buscamos brindar una experiencia de compra intuitiva, rápida y metódicamente organizada,
+                        consolidándonos como una alternativa confiable, práctica e indispensable para acompañar
+                        el desarrollo continuo de tus actividades creativas y cotidianas.</p>
+                </section>
+                <section class="equipo">
+                    <h2>El equipo detrás de Art Tools</h2>
+                    <div class="equipo-grid">
+                        <div class="integrante">
+                            <h3>Catalina Vega</h3>
+                            <span>Desarrollo Frontend</span>
+                        </div>
+                            <div class="integrante">
+                            <h3>Catalina Vega</h3>
+                            <span>Diseño y CSS</span>
+                        </div>
+                        <div class="integrante">
+                            <h3>Catalina Vega</h3>
+                            <span>Validación JavaSript</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
     </main>
     <footer>
-        <div class="footer-cont">
-            <a href="index.html">
-                <img src="img/logo.png" alt="Art Tools" />
+            <div class="footer-cont">
+            <a class="footer-logo" href="index.html">
+                <img src="img/artTools_v2.png" alt="logo art tools">
+                <h2>Art Tools</h2>
             </a>
             <ul>
                 <li><a href="informacion.html">Nosotros</a></li>
-                <li><a href="informacion.html">Contáctanos</a></li>
+                <li><a href="#"></a>Contáctanos</li>
+                <li><a href="#"></a>Blog</li>
             </ul>
         </div>
         <p>&copy; 2026 Art Tools</p>
     </footer>
+    <script src="#"></script>
 </body>
 </html>

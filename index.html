@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Art Tools - Tu tienda de arte</title>
-    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
@@ -13,44 +14,47 @@
     <header>
         <nav class="cabecera">
             <div class="logo">
-                <h1>
-                    <a href="index.html">
-                        <img src="img/logo.png" alt="Art Tools"/>
-                    </a>
-                </h1>
+                <a href="index.html">
+                    <img src="img/artTools_v2.png" alt="">
+                    <h1>Art Tools</h1>
+                </a>
             </div>
             <div class="content-menu">
                 <ul class="menu">
-                <li class="menu-categorias">
-                    <details>
-                        <summary>Categorías</summary>
-                        <ul class="submenu">
-                            <li><a href="#">Escolar</a></li>
-                            <li><a href="#">Oficina</a></li>
-                            <li><a href="#">Papelería</a></li>
-                            <li><a href="#">Técnicas varias</a></li>
-                        </ul>
-                    </details>
-                </li>
-                <li><a href="productos.html">Productos</a></li>
-                <li><a href="informacion.html">Información</a></li>
+                    <li class="menu-categorias">
+                        <details>
+                            <summary>Categorías</summary>
+                            <ul class="submenu">
+                                <li><a href="#">Escolar</a></li>
+                                <li><a href="#">Oficina</a></li>
+                                <li><a href="#">Papelería</a></li>
+                                <li><a href="#">Técnicas varias</a></li>
+                            </ul>
+                        </details>
+                    </li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="#">Blogs</a></li>
+                    <li><a href="informacion.html">Nosotros</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
                 </ul>
                 <div class="buscar">
-                <form action="/busqueda" method="get">
-                <img src="img/lupa.png" alt="" aria-hidden="true"/>
-                <label for="busqueda">Buscar</label>
-                <input type="text" id="busqueda" 
-                    name="barraBusqueda" placeholder="Pinturas acrilicas">
-                </form>
+                    <form action="/busqueda" method="get">
+                        <img src="img/lupa.png" alt="" aria-hidden="true">
+                        <label for="busqueda">Buscar</label>
+                        <input type="text" id="busqueda"
+                            name="barraBusqueda" placeholder="Pinturas acrilicas">
+                    </form>
                 </div>
-                <a class="carrito" href="carrito.html">
-                <img src="img/carrito-de-compras.png" alt="Carrito"/>
-            </a>
+                <div class="auth-area" id="auth-area"></div>
+                <a class="carrito-nav" href="carrito.html">
+                    <img src="img/carrito-de-compras.png" alt="Carrito">
+                    <span class="carrito-count oculto">0</span>
+                </a>
             </div>
         </nav>
     </header>
     <main>
-        <section class="hero-inicio">  
+        <section class="hero-inicio">
             <img src="img/banners/banner.jpg" alt="img fondo">
             <div class="hero-content">
                 <h2>Explora nuestros productos</h2>
@@ -59,67 +63,24 @@
             </div>
         </section>
         <section class="productos-destacados">
-            <h2>Productos destacados</h2>
-            <div class="productos-grid">
-                <article class="producto-card">
-                <a href="producto.html">
-                  <img src="img/productos/corchetera.jpg" 
-                        alt="corchetera negra b4 torre"/>
-                    <h3>Corchetera negra B4 Torre</h3>  
-                </a>
-                <p class="precio">$5.690</p>
-                <button type="button">Agregar al carrito</button>   
-            </article>     
-            <article class="producto-card">
-                <a href="#">
-                    <img src="img/productos/cuaderno.jpg" 
-                        alt="cuaderno universitario torre 7mm 100hjs"/>
-                    <h3>Cuaderno Universitario Torre 7mm 100hjs</h3>
-                </a>
-                <p class="precio">$1.900</p>
-                <button type="button">Agregar al carrito</button>   
-            </article>     
-            <article class="producto-card">
-                <a href="#">
-                    <img src="img/productos/libreta.jpg" 
-                        alt="libreta negra tapa dura 100 hjs rayadas"/>
-                    <h3>Libreta negra tapa dura 100 hjs rayadas</h3>
-                </a> 
-                <p class="precio">$1.900</p>
-                <button type="button">Agregar al carrito</button>   
-            </article>     
-            <article class="producto-card">
-                <a href="#">
-                    <img src="img/productos/pinceles.jpg" 
-                        alt="set 5 pinceles para acrilico artel"/>
-                    <h3>Set 5 Pinceles para Acrílico Artel</h3>
-                </a>
-                <p class="precio">$6.500</p>
-                <button type="button">Agregar al carrito</button>   
-            </article>     
-            <article class="producto-card">
-                <a href="#">
-                    <img src="img/productos/pintura.jpg" 
-                        alt="set 24 pinturas acrilicas tubos 24 artel"/>
-                    <h3>Set De 24 Pinturas Acrílicas En Tubos 24 Artel</h3>
-                </a>                
-                <p class="precio">$8.490</p>
-                <button type="button">Agregar al carrito</button>   
-            </article>   
-            </div>  
+            <h2>productos destacados</h2>
+            <div class="productos-grid" id="grid-destacados"></div>
         </section>
     </main>
     <footer>
         <div class="footer-cont">
-            <a href="index.html">
-                <img src="img/logo.png" alt="Art Tools" />
+            <a class="footer-logo" href="index.html">
+                <img src="img/artTools_v2.png" alt="logo art tools">
+                <h2>Art Tools</h2>
             </a>
             <ul>
                 <li><a href="informacion.html">Nosotros</a></li>
-                <li><a href="informacion.html">Contáctanos</a></li>
+                <li><a href="#"></a>Contáctanos</li>
+                <li><a href="#"></a>Blog</li>
             </ul>
         </div>
         <p>&copy; 2026 Art Tools</p>
     </footer>
+    <script src="#"></script>
 </body>
 </html>
