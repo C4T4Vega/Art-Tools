@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Tools - Administrar usuarios</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+</head>
+<body class="admin-body">
+    <aside class="admin-sidebar">
+        <div class="admin-logo">
+            <img src="../img/logo.png" alt="Art Tools"/>
+            <h1>Art Tools</h1>
+            <span>Panel admin</span>
+        </div>
+        <ul class="admin-menu">
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li data-solo-admin><a href="usuarios.html" class="activo">Usuarios</a></li>
+        </ul>
+        <div class="admin-pie">
+            <span id="admin-nombre-usuario"></span>
+            <a href="../index.html">Volver a la tienda</a>
+            <button type="button" id="btn-cerrar-sesion-admin">Cerrar sesión</button>
+        </div>
+    </aside>
+    <main class="admin-main">
+        <div class="admin-topbar">
+            <h2>Usuarios</h2>
+            <span class="rol-badge" id="rol-badge"></span>
+        </div>
+        <div class="admin-panel">
+            <div class="admin-acciones-top">
+                <input type="text" class="admin-buscador" id="buscador-usuarios" placeholder="Buscar por nombre, correo o RUN">
+                <a class="btn-primario" href="usuario-form.html">+ Nuevo usuario</a>
+            </div>
+            <div>
+                <table class="admin-tabla">
+                    <thead>
+                        <tr>
+                            <tr>RUN</tr>
+                            <tr>Nombre</tr>
+                            <tr>Correo</tr>
+                            <tr>Tipo de usuario</tr>
+                            <tr>Región</tr>
+                            <tr>Acciones</tr>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody-usuarios"></tbody>
+                </table>
+            </div>
+        </div>
+    </main> 
+    <script src=""></script>
+</body>
+</html>

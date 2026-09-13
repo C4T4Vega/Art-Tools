@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=|, initial-scale=1.0">
+    <title>Art Tools - Administrar productos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+</head>
+<body class="admin-body">
+    <aside class="admin-sidebar">
+        <div class="admin-logo">
+            <img src="../img/artTools_v2.png" alt="Art Tools">
+            <span>Panel admin</span>
+        </div>
+        <ul class="admin-menu">
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li data-solo-admin><a href="usuarios.html">Usuarios</a></li>
+        </ul>
+        <div class="admin-pie">
+            <span id="admin-nombre-usuario"></span>
+            <a href="../index.html">Volver a la tienda</a>
+            <button type="button" id="btn-cerrar-sesion-adimin">Cerrar sesión</button>
+        </div>
+    </aside> 
+    <main class="admin-main">
+        <div class="admin-topbar">
+            <h2>Productos</h2>
+            <span class="rol-badge" id="rol-badge"></span>
+        </div>
+        <div class="admin-panel" id="panel-productos">
+            <div class="admin-acciones-top">
+                <input type="text" class="admin-buscador" id="buscador-productos" placeholder="Buscar por nombre o código">
+                <a class="btn-primario" href="producto-form.html" id="btn-nuevo-producto">+ Nuevo Producto</a>
+            </div>
+            <div>
+                <table class="admin-tabla">
+                    <thead>
+                        <tr>
+                            <tr>Imagen</tr>
+                            <tr>Código</tr>
+                            <tr>Nombre</tr>
+                            <tr>Categoría</tr>
+                            <tr>Precio</tr>
+                            <tr>Stock</tr>
+                            <tr>Acciones</tr>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody-productos"></tbody>
+                </table>
+            </div>            
+        </div>
+    </main>   
+    <script src="#"></script>
+</body>
+</html>

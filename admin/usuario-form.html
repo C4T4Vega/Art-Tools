@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Tools - Nuevo/Editar usuario</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+</head>
+<body class="admin-body">
+    <aside class="admin-sidebar">
+        <div class="admin-logo">
+            <img src="../img/logo.png" alt="Art Tools"/>
+            <h1>Art Tools</h1>
+            <span>Panel admin</span>
+        </div>
+        <ul class="admin-menu">
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li data-solo-admin><a href="usuarios.html" class="activo">Usuarios</a></li>
+        </ul>
+        <div class="admin-pie">
+            <span id="admin-nombre-usuario"></span>
+            <a href="../index.html">Volver a la tienda</a>
+            <button type="button" id="btn-cerrar-sesion-admin">Cerrar sesión</button>
+        </div>
+    </aside> 
+    <main class="admin-main">
+        <div class="admin-topbar">
+            <h2 id="titulo-form-usuario">Nuevo Usuario</h2>
+            <span class="rol-badge" id="rol-badge"></span>
+        </div>
+        <div class="admin-form-usuario" id="admin-form-panel">
+            <form id="form-usuario" novalidate>
+                <div class="alerta oculto" id="alerta-usuario"></div>
+                <div class="form-grid">
+                    <div class="campo">
+                        <label for="run">RUN (sin puntos ni guion)</label>
+                        <input type="text" id="run" name="run" placeholder="Ej: 123456789" maxlength="9">
+                        <span class="mensaje-error" id="error-run"></span>
+                    </div>
+                    <div class="campo">
+                        <label for="tipo-usuario">Tipo de usuario</label>
+                        <select id="tipo-usuario" name="tipo-usuario">
+                            <option value="">Seleccione un tipo</option>
+                            <option value="adimistrador">Administrador</option>
+                            <option value="vendedor">Vendedor</option>
+                            <option value="cliente">Cliente</option>
+                        </select>
+                        <span class="mensaje-error" id="error-tipoUsuario"></span>
+                    </div>
+                    <div class="campo">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" maxlength="50">
+                        <span class="mensaje-error" id="error-nombre"></span>
+                    </div>
+                    <div class="campo">
+                        <label for="apellidos">Apellidos</label>
+                        <input type="text" id="apellidos" name="apellidos" maxlength="50">
+                        <span class="mensaje-error" id="error-apellidos"></span>
+                    </div>
+                    <div class="campo">
+                        <label for="correo">Correo</label>
+                        <input type="email" id="correo" name="correo" maxlength="100">
+                        <span class="mensaje-error" id="error-correo"></span>
+                    </div>
+                    <div class="campo">
+                        <label for="fecha-nacimiento">Fecha de nacimiento</label>
+                        <input type="date" id="fecha-nacimiento" name="fecha-nacimiento">
+                    </div>
+                    <div class="campo">
+                        <label for="region">Región</label>
+                        <select id="region" name="region"></select>
+                        <span class="mensaje-error" id="error-region"></span>
+                    </div>
+                    <div class="campo">
+                        <label for="comuna">Comuna</label>
+                        <select id="comuna" name="comuna"></select>
+                        <span class="mensaje-error" id="error-comuna"></span>
+                    </div>
+                    <div class="campo campo-full">
+                        <label for="direccion">Dirección</label>
+                        <input type="text" id="direccion" name="direccion" maxlength="300">
+                        <span class="mensaje-error" id="error-direccion"></span>
+                    </div>
+                    <div class="campo">
+                        <label for="clave">Contraseña</label>
+                        <input type="password" id="clave" name="clave" maxlength="10">
+                        <span class="mensaje-error" id="nota-clave">En blanco para no modificar la contraceña actual</span>
+                    </div>
+                    <div class="campo">
+                        <label for="confirmar-clave">Confirmar contraseña</label>
+                        <input type="password" id="confirmar-clave" name="confirmar-clave" maxlength="10">
+                        <span class="mensaje-error" id="error-confirmarClave"></span>
+                    </div>
+                </div>
+                <div class="form-acciones">
+                    <button type="submit">Guardar Usuario</button>
+                </div>
+            </form>
+        </div>
+    </main> 
+    <script src=""></script>
+</body>
+</html>
