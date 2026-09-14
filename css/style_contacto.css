@@ -1,0 +1,60 @@
+/* CSS de contacto */
+.hero-contacto {
+    background-image: url("../img/banners/banner3.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 60px 20px;
+    text-align: center;
+    color: #ffff;
+    position: relative;
+}
+
+.hero-contacto::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0,0,0,0.45);
+}
+
+.hero-contacto h2, .hero-contacto p {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-contacto h2 {
+    font-size: 36px;
+    margin-bottom: 8px;
+}
+
+.seccion-contacto {
+    padding: 45px 20px 60px;
+}
+
+.datos-contacto {
+    max-width: 650px;
+    margin: 0 auto 25px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    text-align: center;
+}
+
+.datos-contacto div {
+    background-color: #ffff;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.datos-contacto strong {
+    display: block;
+    color: #77942e;
+    margin-bottom: 4px;
+}
+
+@media (max-width: 600px) {
+    .datos-contacto {
+        grid-template-columns: 1fr;
+    }
+}

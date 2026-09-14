@@ -1,0 +1,125 @@
+/* CSS de blogs */
+.hero-blogs {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+}
+
+.hero-blogs img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: rgba(255,255,255,0.8);
+    padding: 18px 40px;
+    border-radius: 6px;
+}
+
+.hero-content h2 {
+    font-size: 32px;
+}
+
+.lista-blogs {
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 45px 20px 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.blog-card {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    background-color: #ffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.blog-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    min-height: 220px;
+}
+
+.blog-card-contenido {
+    padding: 25px 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-card-contenido h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.blog-card-contenido p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+.blog-card-contenido a {
+    margin-top: auto;
+    display: inline-block;
+    padding: 9px 20px;
+    background-color: #77942e;
+    color: #ffff;
+    border-radius: 6px;
+    width: fit-content;
+}
+
+.blog-card-contenido a:hover {
+    background-color: #00543d;
+}
+
+.blog-detalle {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px 70px;
+}
+
+.blog-detalle img {
+    width: 100%;
+    max-height: 380px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 25px;
+}
+
+.blog-detalle h2 {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.blog-detalle .fecha-blog {
+    color: #888;
+    font-size: 13px;
+    margin-bottom: 25px;
+    display: block;
+}
+
+.blog-detalle p {
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 18px;
+}
+
+@media (max-width: 750px) {
+    .blog-card {
+        grid-template-columns: 1fr;
+    }
+    .blog-card img {
+        min-height: 180px;
+    }
+}

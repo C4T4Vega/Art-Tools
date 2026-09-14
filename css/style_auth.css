@@ -1,0 +1,42 @@
+/* CSS para login y registro */
+.section-auth {
+    padding: 40px 20px 70px;
+    background-color: #f0eeee;
+    min-height: 70vh;
+}
+
+.auth-logo {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.auth-logo img {
+    width: 70px;
+    margin: 0 auto 10px;
+}
+
+.auth-logo h1 {
+    font-size: 22px;
+    color: #333;
+}
+
+.form-card.form-login {
+    max-width: 450px;
+}
+
+.demo-credenciales {
+    max-width: 650px;
+    margin: 0 auto 15px;
+    background-color: #fff9e6;
+    border: 1px solid #f0dca0;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #6b5900;
+}
+
+.demo-credenciales strong {
+    display: block;
+    margin-bottom: 4px;
+}

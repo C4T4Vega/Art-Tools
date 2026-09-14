@@ -1,0 +1,479 @@
+/* CSS base */
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #f0eeee;
+    color: #222;
+}
+
+a {
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.cabecera {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 15px 40px;
+    background-color: #77942e;
+}
+
+.logo img {
+    width: 90px;
+    height: auto;
+}
+
+.content-menu{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    color: #ffff;
+    flex-wrap: wrap;
+}
+
+.menu > li a {
+    color: #ffff;
+}
+
+.menu > li a:hover {
+    text-decoration: underline;
+}
+
+.menu-categorias {
+    position: relative;
+}
+
+.menu-categorias summary {
+    cursor: pointer;
+    color: #ffff;
+    list-style: none;
+}
+
+.menu-categorias summary::-webkit-details-marker {
+    display: none;
+}
+
+.submenu {
+    position: absolute;
+    list-style: none;
+    margin: 10px 0 0;
+    padding: 5px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background-color: #3a6324;
+    border: 1px solid #ffff;
+    border-radius: 8px;
+}
+
+.submenu a {
+    display: block;
+    padding: 10px;
+    color: #ffff;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.submenu a:hover {
+    background-color: #00543d;
+    text-decoration: none;
+}
+
+.content-menu form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.content-menu form label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.content-menu form input {
+    border-radius: 10px;
+    width: 180px;
+    padding: 8px;
+    border: none;
+}
+
+.content-menu form img {
+    width: 20px;
+    height: 20px;
+}
+
+.auth-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #ffff;
+    font-size: 14px;
+}
+
+.auth-area a {
+    color: #ffff;
+}
+
+.auth-area a:hover, .auth-area button:hover {
+    text-decoration: underline;
+}
+
+.auth-area .btn-link {
+    background: none;
+    border: none;
+    color: #ffff;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: inherit;
+    padding: 0;
+}
+
+.auth-area .admin-link {
+    background-color: #00543d;
+    padding: 6px 12px;
+    border-radius: 6px;
+}
+
+.carrito-nav {
+    position: relative;
+    display: inline-flex;
+}
+
+.carrito-nav img {
+    width: 30px;
+    height: 30px;
+}
+
+.carrito-count {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background-color: #d33;
+    color: #ffff;
+    font-size: 11px;
+    font-weight: bold;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 2px;
+}
+
+.volver {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 15px;
+    margin-top: 15px;
+    color: #000;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.volver img {
+    width: 30px;
+    height: auto;
+}
+
+.btn, button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.btn-primario {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #77942e;
+    color: #ffff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.btn-primario:hover {
+    background-color: #00543d;
+}
+
+.btn-secundario {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #ffff;
+    color: #77942e;
+    border: 2px solid #77942e;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.btn-secundario:hover {
+    background-color: #f0eeee;
+}
+
+.btn-peligro {
+    padding: 8px 16px;
+    background-color: #b23a3a;
+    color: #ffff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-peligro:hover {
+    background-color: #822525;
+}
+
+.form-card {
+    max-width: 650px;
+    margin: 40px auto;
+    background-color: #ffff;
+    padding: 35px 40px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.form-card h2 {
+    text-align: center;
+    margin-bottom: 8px;
+    font-size: 28px;
+}
+
+.form-card .subtitulo {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #555;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px 20px;
+}
+
+.form-grid .campo-full {
+    grid-column: 1 / -1;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+    text-align: left;
+}
+
+.form-grid .campo {
+    margin-bottom: 0;
+}
+
+.campo label {
+    margin-bottom: 6px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.campo .opcional-tag {
+    font-weight: normal;
+    color: #888;
+    font-size: 12px;
+}
+
+ .campo input,.campo select, .campo textarea {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.campo input:focus, .campo select:focus, .campo textarea:focus {
+    outline: none;
+    border-color: #77942e;
+}
+
+.campo textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+.campo input.campo-error, .campo select.campo-error, .campo textarea.campo-error {
+    border-color: #c0392b;
+    background-color: #fdf1f0;
+}
+
+.mensaje-error {
+    color: #c0392b;
+    font-size: 12.5px;
+    margin-top: 5px;
+    min-height: 15px;
+}
+
+.mensaje-ayuda {
+    color: #777;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.form-acciones {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.form-acciones button {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 6px;
+    background-color: #77942e;
+    color: #ffff;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.form-acciones button:hover {
+    background-color: #00543d;
+}
+
+.alerta {
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.alerta-exito {
+    background-color: #e5f3e0;
+    color: #2d5a1e;
+    border: 1px solid #b7dba3;
+}
+
+.alerta-error {
+    background-color: #fbeaea;
+    color: #8a1f1f;
+    border: 1px solid #f0b4b4;
+}
+
+.alerta-info {
+    background-color: #e8f0fb;
+    color: #1f3d8a;
+    border: 1px solid #b4cdf0;
+}
+
+.form-enlace-secundario {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+/* ---------- Footer ---------- */
+footer {
+    background-color: #3b3b3b;
+    color: #ffff;
+    padding: 25px 40px;
+}
+
+.footer-cont {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.footer-cont ul {
+    display: flex;
+    list-style: none;
+    gap:15px;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+}
+
+.footer-cont a {
+    color: #ffff;
+    text-decoration: none;
+}
+
+.footer-cont a:hover {
+    text-decoration: underline;
+}
+
+.footer-cont img {
+    width: 90px;
+    height: auto;
+}
+
+footer p {
+    text-align: center;
+    margin: 20px 0 0;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.oculto {
+    display: none !important;
+}
+
+.texto-centro {
+    text-align: center;
+}
+
+@media (max-width: 900px) {
+    .cabecera {
+        padding: 15px 20px;
+    }
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 700px) {
+    .content-menu {
+        width: 100%;
+        justify-content: space-between;
+    }
+    .menu {
+        gap: 14px;
+    }
+    .content-menu form input {
+        width: 120px;
+    }
+}

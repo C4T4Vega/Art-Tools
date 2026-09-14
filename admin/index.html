@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Art Tools - Panel administrador</title>
+    <link rel="stylesheet" href="../css/base.css"/>
+    <link rel="stylesheet" href="../css/admin.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
@@ -11,19 +13,21 @@
 <body class="admin-body">
     <aside class="admin-sidebar">
         <div class="admin-logo">
-            <img src="../img/artTools_v2.png" alt="Art Tools">
-            <h1>Art Tools</h1>
-            <span>Panel adimistrador</span>
+            <div class="logo">
+                <img src="../img/artTools_v2.png" alt="Art Tools"/>
+                <h1>Art Tools</h1>
+            </div>
+            <span>Panel admin</span>
         </div>
         <ul class="admin-menu">
             <li><a href="index.html" class="activo">Dashboard</a></li>
-            <li><a href="productos.html">Productos</a></li>
+            <li><a href="productos.html" >Productos</a></li>
             <li data-solo-admin><a href="usuarios.html">Usuarios</a></li>
         </ul>
         <div class="admin-pie">
             <span id="admin-nombre-usuario"></span>
             <a href="../index.html">Volver a la tienda</a>
-            <button type="button" id="btn-cerrar-sesion-adimin">Cerrar Sesión</button>
+            <button type="button" id="btn-cerrar-sesion-admin">Cerrar sesión</button>
         </div>
     </aside>
     <main class="admin-main">
@@ -31,23 +35,28 @@
             <h2 id="saludo-admin">¡Hola!</h2>
             <span class="rol-badge" id="rol-badge"></span>
         </div>
+
         <div class="admin-cards">
-            <div class="valor" id="card-total-productos">0</div>
-            <div class="etiqueta">Productos en catálogo</div>
+            <div class="admin-card">
+                <div class="valor" id="card-total-productos">0</div>
+                <div class="etiqueta">Productos en catálogo</div>
+            </div>
+            <div class="admin-card alerta">
+                <div class="valor" id="card-stock-critico">0</div>
+                <div class="etiqueta">Productos con stock crítico</div>
+            </div>
+            <div class="admin-card" id="card-usuarios-cont">
+                <div class="valor" id="card-total-usuarios">0</div>
+                <div class="etiqueta">Usuarios registrados</div>
+            </div>
         </div>
-        <div class="admin-card alerta">
-            <div class="valor" id="card-stock-critico">0</div>
-            <div class="etiqueta">Productos con stock crítico</div>
-        </div>
-        <div class="admin-card" id="card-usuarios-cont">
-            <div class="valor" id="card-total-usuarios">0</div>
-            <div class="etiqueta">Usuarios registrados</div>
-        </div>
+
         <div class="admin-panel">
-            <h2>Alertas de stock crítico</h2>
+            <h3>Alertas de stock crítico</h3>
             <ul id="lista-stock-critico"></ul>
         </div>
     </main>
+
     <script src="#"></script>
 </body>
 </html>

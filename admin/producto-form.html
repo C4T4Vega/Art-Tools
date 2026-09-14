@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Art Tools - Nuevo/Editar producto</title>
+    <link rel="stylesheet" href="../css/base.css"/>
+    <link rel="stylesheet" href="../css/admin.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
@@ -11,7 +13,10 @@
 <body class="admin-body">
     <aside class="admin-sidebar">
         <div class="admin-logo">
-            <img src="../img/logo.png" alt="Art Tools"/>
+           <div class="logo">
+                <img src="../img/artTools_v2.png" alt="Art Tools"/>
+                <h1>Art Tools</h1>
+            </div>
             <span>Panel admin</span>
         </div>
         <ul class="admin-menu">
@@ -27,13 +32,12 @@
     </aside>
     <main class="admin-main">
         <div class="admin-topbar">
-            <h1 id="titulo-form-producto">Nuevo producto</h1>
+            <h2 id="titulo-form-producto">Nuevo producto</h2>
             <span class="rol-badge" id="rol-badge"></span>
         </div>
         <div class="admin-form-panel" id="admin-form-panel">
             <form id="form-producto" novalidate>
                 <div class="alerta oculto" id="alerta-producto"></div>
-
                 <div class="form-grid">
                     <div class="campo">
                         <label for="codigo">Código de producto</label>
@@ -85,5 +89,6 @@
             </form>
         </div>
     </main>
+    <script src="#"></script>
 </body>
 </html>
