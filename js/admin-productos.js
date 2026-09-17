@@ -81,6 +81,156 @@ function initFormularioProducto(){
     };
 
     CATEGORIAS.forEach((c) => {
+        const opt = document.createElement("opcion");
+        opt.value = c.slug;
+        opt.textContent = c.nombre;
+        campos.categoria.appendChild(opt);
+    });
 
+    const preview = document.getElementById("imagen-preview");
+    function actualizarPreview(){
+        preview.src = campos.imagen.value.trim()|| IMG_PLACEHOLDER;
+    }
+    campos.imagen.addEventListener("input", actualizarPreview);
+
+    const codigoOriginal = getQueryParam("codigo");
+    const modoEdicion = !!codigoOriginal;
+    document.getElementById("titulo-form-producto").textContent = modoEdicion ? "Editar producto" : "Nuevo producto";
+
+    if(modoEdicion){
+        const producto = obtenerProductoPorCodigo(codigoOriginal);
+        if(!producto){
+            document.getElementById("admin-form-panel").innerHTML = "<p>Producto no encontrado.</p>";
+            return;
+        }
+        campos.codigo.value = producto.codigo;
+        campos.codigo.value = producto.codigo;
+        campos.codigo.setAttribute("readonly", "true");
+        campos.nombre.value = producto.nombre;
+        campos.descripcion.value = producto.descripcion || "";
+        campos.precio.value = producto.precio;
+        campos.stock.value = producto.stock;
+        campos.stockCritico.value = producto.stockCritico ?? "";
+        campos.categoria.value = producto.categoria;
+        campos.imagen.value = producto.imagen || "";
+        actualizarPreview();
+    }
+
+    const validadores = {
+        codigo: () => {
+            const v = campos.codigo.value.trim();
+            if(!v) return "El código es obligatorio.";
+            if(v.length < 3)return "Mínimo 3 caracteres";
+            if(!modoEdicion && obtenerProductoPorCodigo(v)) return "Ya existe un producto con ese código.";
+            return "";
+        },
+        nombre: () => {
+            const v = campos.nombre.value.trim();
+            if (!v) return "El nombre es obligatorio.";
+            if (v.length > 100) return "Máximo 100 caracteres.";
+            return "";
+        },
+        descripcion: () => {
+            const v = campos.descripcion.value.trim();
+            if (v.length > 500) return "Máximo 500 caracteres.";
+            return "";
+        },
+        precio: () => {
+            const v = campos.precio.value;
+            if (v === "") return "El precio es obligatorio.";
+            const n = parseFloat(v);
+            if (isNaN(n) || n < 0) return "El precio debe ser 0 o mayor.";
+            return "";
+        },
+        stock: () => {
+            const v = campos.stock.value;
+            if (v === "") return "El stock es obligatorio.";
+            if (!/^\d+$/.test(v)) return "El stock debe ser un número entero (0 o mayor).";
+            return "";
+        },
+        stockCritico: () => {
+            const v = campos.stockCritico.value;
+            if (v === "") return "";
+            if (!/^\d+$/.test(v)) return "El stock crítico debe ser un número entero (0 o mayor).";
+            return "";
+        },
+        categoria: () => (campos.categoria.value ? "" : "Selecciona una categoría.")
+    };
+
+    function validarCampo(nombreCampo){
+        const mensajeEl = document.getElementById("error-" + nombreCampo);
+        const error = validadores[nombreCampo]();
+        if(error) marcarError(campos[nombreCampo], mensajeEl, error);
+        else limpiarError(campos[nombreCampo], mensajeEl);
+        return !error;
+    }
+
+    Object.keys(validadores).forEach((nombreCampo) => {
+        const el = campos[nombreCampo];
+        el.addEventListener("blur", () => validarCampo(nombreCampo));
+        el.addEventListener("input", () => {
+            if (el.classList.contains("campo-error")) validarCampo(nombreCampo);
+        });
+    });
+
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        let valido = true;
+        let primerInvalido = null;
+        Object.keys(validadores).forEach((nombreCampo) => {
+            const ok = validarCampo(nombreCampo);
+            if (!ok && !primerInvalido) primerInvalido = campos[nombreCampo];
+            valido = valido && ok;
+        });
+
+        const alerta = document.getElementById("alerta-producto");
+        if(!valido){
+            if(primerInvalido) primerInvalido.focus();
+            alerta.textContent = "Revisa los campos marcados en rojo.";
+            alerta.className =  "alerta alerta-error";
+            alerta.classList.remove("oculto");
+            return;
+        }
+
+        const productoFinal = {
+            codigo: campos.codigo.value.trim(),
+            nombre: campos.nombre.value.trim(),
+            descripcion: campos.descripcion.value.trim(),
+            precio: parseFloat(campos.precio.value),
+            stock: parseInt(campos.stock.value, 10),
+            stockCritico: campos.stockCritico.value === "" ? null : parseInt(campos.stockCritico.value, 10),
+            categoria: campos.categoria.value,
+            imagen: campos.imagen.value.trim() || "img/productos/placeholder.svg"
+        };
+
+        const ok = modoEdicion
+            ? actualizarProducto(codigoOriginal, productoFinal)
+            : crearProducto(productoFinal);
+        
+        if(!ok){
+            alerta.textContent = "Ya hay un producto que tiene ese codigo";
+            alerta.className = "alerta alerta-error";
+            alerta.classList.remove("oculto");
+            return;
+        }
+
+        window.location.href = "productos.html";
     });
 }
+
+document-addEventListener("DOMcontenet", () => {
+    const sesion = protegerAdmin(["administrador", "vendedor"]);
+    if(!sesion) return;
+
+    if(document.getElementById("tbody-productos")) initListadoProductos(session);
+    if ( document.getElementById("tbody-producto")) initListadoProductos(sesion);
+
+    if(document.getElementById("form-producto")){
+        if(sesion.tipoUsuario !== "administrador"){
+            document.getElementById("admin-form-panel").innerHTML =
+            '<p>Tu rol de vendedor solo permite visualizar productos, no crear ni editar.</p>';
+        }else{
+            initFormularioProducto();
+        }
+    }
+});
