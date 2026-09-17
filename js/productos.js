@@ -1,5 +1,5 @@
 /* productos*/
-function targetaProductoHTML(p) {
+function tarjetaProductoHTML(p) {
     const agotado = p.stock <= 0;
     return`
         <article class = "producto-card" data-codigo = "${p.codigo}">
@@ -54,7 +54,7 @@ function renderListadoProductos(){
             return;
         }
 
-        contenedor.innerHTML = filtrados.map(targetaProductoHTML).join("");
+        contenedor.innerHTML = filtrados.map(tarjetaProductoHTML).join("");
         activarBotonesAgregar(contenedor);
     }
 
@@ -73,7 +73,7 @@ function renderListadoProductos(){
     pintar();
 }
 
-document.addEventListener("DOMcontentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
     renderDestacados();
     renderListadoProductos();
 });

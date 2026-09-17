@@ -1,9 +1,9 @@
 /* detalle producto */
 document.addEventListener("DOMContentLoaded", () => {
     const contenedor = document.getElementById("detalle-producto-info");
-    if("!contenedor") return;
+    if(!contenedor) return;
 
-    const codigo = qetQueryParam("codigo");
+    const codigo = getQueryParam("codigo");
     const producto = codigo ? obtenerProductoPorCodigo(codigo) : null;
 
     if(!producto){
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     btnAgregar.addEventListener("click", () => {
-        const cantidad = Math.max(1, parseInt(inputCantidad.ariaValueMax, 0) || 1);
+        const cantidad = Math.max(1, parseInt(inputCantidad.value, 10) || 1);
         const resultado = agregarAlCarrito(producto.codigo, cantidad);
         mensajeCarrito.textContent = resultado.mensaje;
         mensajeCarrito.style.color = resultado.ok ? "#2d5a1e" : "#c0392b";
@@ -60,12 +60,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if(relacionadosCont){
         const relacionados = obtenerProductos()
         .filter((p) => p.categoria === producto.categoria && p.codigo !== producto.codigo)
-        .slice(0,4);
+        .slice(0, 4);
 
-    if(relacionados.length == 0){
+    if(relacionados.length === 0){
         relacionadosCont.closest(".relacionados").classList.add("oculto");
     }else{
-        relacionadosCount.innerHTML = relacionados.amp((p) =>`
+        relacionadosCont.innerHTML = relacionados.map((p) =>`
                 <a href="producto.html?codigo=${encodeURIComponent(p.codigo)}" class="producto-card">
                     <img src="${p.imagen}" alt="${escapeHtml(p.nombre)}"/>
                     <h3>${escapeHtml(p.nombre)}</h3>

@@ -3,7 +3,7 @@ const CLAVE_CARRITO = "at_carrito";
 const COSTO_ENVIO = 2990;
 const ENVIO_GRATIS_DESDE = 20000;
 
-function obternerCarrito(){
+function obtenerCarrito(){
     const guardado = localStorage.getItem(CLAVE_CARRITO);
     if(!guardado) return [];
     try{
@@ -19,7 +19,7 @@ function guardarCarrito(items){
 }
 
 /* suma la cantidad de unidades en el carrito y las muestra(puntito en carrito)*/
-function actualizarBadgeCarrito(){
+function actualizarCantidadCarrito(){
     const items = obternerCarrito();
     const total = items.reduce((acc, it) => acc + it.cantidad, 0);
     document.querySelectorAll(".carrito-count").forEach((el) => {
@@ -135,7 +135,7 @@ function renderCarritoPagina(){
             `;
         }).join("");
 
-        contenedorLista.querySelectorAll(".inpu-cantidad-carrito").forEach((input) => {
+        contenedorLista.querySelectorAll(".input-cantidad-carrito").forEach((input) => {
             input.addEventListener("change", (e) => {
                 const codigo = e.target.dataset.codigo;
                 const valor = parseInt(e.target.value, 10) || 1;

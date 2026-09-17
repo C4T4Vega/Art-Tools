@@ -90,7 +90,7 @@ function protegerAdmin(rolesPermitidos){
     if(badge) badge.textContent = sesion.tipoUsuario;
 
     const nombreEl = document.getElementById("admin-nombre-usuario");
-    if(nombreEl) nombreEl.textContent = sesion.tipoUsuario;
+    if(nombreEl) nombreEl.textContent = `${sesion.nombre} ${sesion.apellidos || ""}`.trim();
 
     if(sesion.tipoUsuario === "vendedor"){
         document.querySelectorAll("[data-solo-admin]").forEach((el) => el.classList.add("oculto"));

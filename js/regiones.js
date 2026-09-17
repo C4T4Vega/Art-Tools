@@ -42,7 +42,7 @@ function poblarSelectComunas(selectComunaEl, nombreRegion){
 
 function enlazarRegionComuna(selectRegionEl, selectComunaEl){
     poblarSelectRegiones(selectRegionEl);
-    selectComunaEl.innerHTML = '<option value="">-- Primero seleccione la region --</opcion>';
+    selectComunaEl.innerHTML = '<option value="">-- Primero seleccione la region --</option>';
 
     selectRegionEl.addEventListener("change", () => {
         poblarSelectComunas(selectComunaEl, selectRegionEl.value)

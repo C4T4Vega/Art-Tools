@@ -1,18 +1,18 @@
 /* admin-producto: mantenedor de productos del panel administrador
    - admin/productos.html -> listado + búsqueda + eliminar
    - admin/producto-form.html -> alta y edición con validaciones*/
-const IMG_PLACEHOLDER = "../img/productos/placeholder.svg";
+const IMG_PLACEHOLDER = "../img/productos/placeholder.jpg";
 
 function initListadoProductos(sesion){
     const tbody = document.getElementById("tbody-productos");
     if(!tbody) return;
 
-    const buscador = document.getElementById("tbody-productos");
+    const buscador = document.getElementById("buscador-productos");
     const esAdmin = sesion.tipoUsuario === "administrador";
 
     function pintar(filtro = ""){
         const productos = obtenerProductos().filter((p) =>
-            p.nombre.toLowerCase().includes(filtro.toLocaleLowerCase())||
+            p.nombre.toLowerCase().includes(filtro.toLowerCase)||
             p.codigo.toLowerCase().includes(filtro.toLowerCase)
         );
 
@@ -66,7 +66,7 @@ function initListadoProductos(sesion){
 }
 
 function initFormularioProducto(){
-    const form = document.getElementById("form-pruducto");
+    const form = document.getElementById("form-producto");
     if(!form) return;
 
     const campos = {
@@ -81,7 +81,7 @@ function initFormularioProducto(){
     };
 
     CATEGORIAS.forEach((c) => {
-        const opt = document.createElement("opcion");
+        const opt = document.createElement("option");
         opt.value = c.slug;
         opt.textContent = c.nombre;
         campos.categoria.appendChild(opt);
@@ -103,7 +103,6 @@ function initFormularioProducto(){
             document.getElementById("admin-form-panel").innerHTML = "<p>Producto no encontrado.</p>";
             return;
         }
-        campos.codigo.value = producto.codigo;
         campos.codigo.value = producto.codigo;
         campos.codigo.setAttribute("readonly", "true");
         campos.nombre.value = producto.nombre;
@@ -200,7 +199,7 @@ function initFormularioProducto(){
             stock: parseInt(campos.stock.value, 10),
             stockCritico: campos.stockCritico.value === "" ? null : parseInt(campos.stockCritico.value, 10),
             categoria: campos.categoria.value,
-            imagen: campos.imagen.value.trim() || "img/productos/placeholder.svg"
+            imagen: campos.imagen.value.trim() || IMG_PLACEHOLDER.replace("../","")
         };
 
         const ok = modoEdicion
@@ -218,11 +217,10 @@ function initFormularioProducto(){
     });
 }
 
-document-addEventListener("DOMcontenet", () => {
+document.addEventListener("DOMContentLoaded", () => {
     const sesion = protegerAdmin(["administrador", "vendedor"]);
     if(!sesion) return;
 
-    if(document.getElementById("tbody-productos")) initListadoProductos(session);
     if ( document.getElementById("tbody-producto")) initListadoProductos(sesion);
 
     if(document.getElementById("form-producto")){

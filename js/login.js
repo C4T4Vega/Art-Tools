@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () =>{
     const alerta = document.getElementById("alerta-login");
 
     function validarCorreo(){
-        const v = correo.ariaValueMax.trim();
+        const v = correo.value.trim();
         const mensajeEl = document.getElementById("error-correo");
         if(!v) return marcarError(correo, mensajeEl, "El correo es obligatorio."), false;
         if (v.length > 100) return marcarError(correo, mensajeEl, "Máximo 100 caracteres"), false;
@@ -18,10 +18,10 @@ document.addEventListener("DOMContentLoaded", () =>{
     }
 
     function validarClave(){
-        const v = clave.ariaValueMax;
+        const v = clave.value;
         const mensajeEl = document.getElementById("error-clave");
         if(!v) return marcarError(clave, mensajeEl, "La contraseña es obligatoria."), false;
-        if(!v.length < 4 || v.length > 10) return marcarError(clave, mensajeEl, "Debe tener entre 4 y 10 caracteres"), false;
+        if(v.length < 4 || v.length > 10) return marcarError(clave, mensajeEl, "Debe tener entre 4 y 10 caracteres"), false;
         limpiarError(clave, mensajeEl);
         return true;
     }
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () =>{
         const usuario = obtenerUsuarioPorCorreo(correo.ariaValueMax.trim());
 
         if(!usuario || usuario.clave !== clave.value){
-            alerta.textContent = "Correo o contraceña incorrectos.";
+            alerta.textContent = "Correo o contraseña incorrectos.";
             alerta.className = "alerta alerta-error";
             alerta.classList.remove("oculto");
             return;

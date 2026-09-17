@@ -17,8 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if(elTotalProductos) elTotalProductos.textContent = productos.length;
     if(elStockCritico) elStockCritico.textContent = stockCritico.length;
 
-    if(sesion.tipoUsuario === "adiministrador"){
-        if(elTotalProductos) elTotalUsuarios.textContent = obtenerUsuarios().length;
+    if(sesion.tipoUsuario === "administrador"){
+        if(elTotalUsuarios) elTotalUsuarios.textContent = obtenerUsuarios().length;
     }else if (cardUsuarios){
         cardUsuarios.classList.add("oculto");
     }
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const listaAlertas = document.getElementById("lista-stock-critico");
     if(listaAlertas){
         if(stockCritico.length === 0){
-            listaAlertas.innerHTML = "<p>No hay productos con stock crítico por el momento.</p>";
+            listaAlertas.innerHTML = "<li>No hay productos con stock crítico por el momento.</li>";
         }else{
             listaAlertas.innerHTML = stockCritico.map((p) => `
                 <li>${escapeHtml(p.nombre)} — quedan <strong>${p.stock}</strong> unidades (código ${escapeHtml(p.codigo)})</li>

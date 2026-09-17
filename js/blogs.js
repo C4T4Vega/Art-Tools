@@ -30,8 +30,25 @@ const BLOGS = [
     }
 ];
 
-function renderDetalleBlogs(){
+function renderListadoBlogs(){
     const contenedor = document.getElementById("lista-blogs");
+    if(!contenedor) return;
+
+    contenedor.innerHTML = BLOGS.map((b) => `
+        <article class="blog-card">
+            <img src="${b.imagen}" alt="${escapeHtml(b.titulo)}"/>
+            <div class="blog-card-info">
+                <span class="fecha-blog">${escapeHtml(b.fecha)}</span>
+                <h2>${escapeHtml(b.titulo)}</h2>
+                <p>${escapeHtml(b.resumen)}</p>
+                <a class="btn-primario" href="blog-detalle.html?id=${b.id}">Leer más</a>
+            </div>
+        </article>
+    `).join("");
+}
+
+function renderDetalleBlogs(){
+    const contenedor = document.getElementById("blog-detalle-contenido");
     if(!contenedor) return;
 
     const id = parseInt(getQueryParam("id"),10);
@@ -46,7 +63,7 @@ function renderDetalleBlogs(){
     `;
 }
 
-document.addEventListener("DOMcontentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
     renderListadoBlogs();
     renderDetalleBlogs();
 });

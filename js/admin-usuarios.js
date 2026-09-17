@@ -39,7 +39,7 @@ function initListadoUsuarios(sesion){
             btn.addEventListener("click", () => {
                 if(btn.disabled)return;
                 if(confirm("¿Eliminar usuario? Esta acción no se puede deshacer.")){
-                    eliminarUsuario(btn.CDATA_SECTION_NODE.correo);
+                    eliminarUsuario(btn.dataset.correo);
                     pintar(buscador ? buscador.value : "");
                 }
             });
@@ -188,7 +188,7 @@ function initFormularioUsuario(){
             nombre: campos.nombre.value.trim(),
             apellidos: campos.apellidos.value.trim(),
             correo: campos.correo.value.trim().toLowerCase(),
-            calve: campos.clave.value ? campos.clave.value : usuarioExistente.clave,
+            clave: campos.clave.value ? campos.clave.value : usuarioExistente.clave,
             fechaNacimiento: campos.fechaNacimiento.value,
             tipoUsuario: campos.tipoUsuario.value,
             region: campos.region.value,

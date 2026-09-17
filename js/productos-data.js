@@ -121,7 +121,7 @@ function guardarProductos(lista){
     localStorage.setItem(CLAVE_PRODUCTOS, JSON.stringify(lista));
 }
 
-function obtenerProductoPorCatalogo(codigo){
+function obtenerProductoPorCodigo(codigo){
     return obtenerProductos().find((p) => p.codigo === codigo) || null;
 }
 
@@ -146,7 +146,7 @@ function actualizarProducto(codigoOriginal, datosNuevos){
     return true;
 }
 
-function eliminatProducto(codigo){
+function eliminarProducto(codigo){
     const lista = obtenerProductos().filter((p) => p.codigo !== codigo);
     guardarProductos(lista);
 }

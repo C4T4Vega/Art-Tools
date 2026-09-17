@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const contadorComentario = document.getElementById("contador-comentario");
 
     function validarNombre(){
-        const v = nombre.ariaValueMax.trim();
+        const v = nombre.value.trim();
         const mensajeEl = document.getElementById("error-nombre");
         if(!v) return marcarError(nombre, mensajeEl, "El nombre es obligatorio."), false;
         if(v.length > 100) return marcarError(nombre, mensajeEl, "El máximo es de 100 caracteres."), false;
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function validarCorreo() {
         const v = correo.value.trim();
         const mensajeEl = document.getElementById("error-correo");
-        if (!v) { limpiarError(correo, mensajeEl); return true; } // opcional
+        if (!v) { limpiarError(correo, mensajeEl); return true; } 
         if (v.length > 100) return marcarError(correo, mensajeEl, "Máximo 100 caracteres."), false;
         if (!validarDominioCorreo(v)) return marcarError(correo, mensajeEl, "Usa un correo @duoc.cl, @profesor.duoc.cl o @gmail.com."), false;
         limpiarError(correo, mensajeEl);
@@ -58,10 +58,10 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        alerta,textContent = `¡Gracias ${nombre.value.trim()}! Recibimos tu mensaje y te responderemos a la brevedad.`;
+        alerta.textContent = `¡Gracias ${nombre.value.trim()}! Recibimos tu mensaje y te responderemos a la brevedad.`;
         alerta.className = "alerta alerta-exito";
         alerta.classList.remove("oculto");
-        form.requestFullscreen();
+        form.reset();
         if(contadorComentario) contadorComentario.textContent = "0 / 500";
     });
 });
