@@ -40,9 +40,9 @@ function renderAuthArea(){
 
     if(!sesion){
         contenedor.innerHTML = `
-            <a href="login.html">Iniciar sesión</a>
+            <a href="${calcularRuta("login.html")}">Iniciar sesión</a>
             <span>|</span>
-            <a href="registro.html">Registrarse</a>
+            <a href="${calcularRuta("registro.html")}">Registrarse</a>
         `;
         return;
     }
@@ -51,7 +51,7 @@ function renderAuthArea(){
 
     contenedor.innerHTML = `
         <span>Hola, ${escapeHtml(sesion.nombre)}</span>
-        ${esStaff ? `<a class="admin-link" href="admin/index.html">Panel admin</a>` : ""}
+        ${esStaff ? `<a class="admin-link" href="${calcularRuta("admin/index.html")}">Panel admin</a>` : ""}
         <button type="button" class="btn-link" id="btn-cerrar-sesion">Cerrar sesión</button>
     `;
 

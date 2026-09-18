@@ -42,15 +42,29 @@ function renderListadoProductos(){
 
     const chips = document.querySelectorAll(".chip-categoria");
     const categoriaUrl = getQueryParam("categoria");
+    const busqueda = (getQueryParam("q")|| "").trim();
     let categoriaActiva = categoriaUrl || "todas";
 
+    const aviso = document.getElementById("aviso-busqueda");
+    if(aviso && busqueda){
+        aviso.innerHTML = `Resultados para <strong>${escapeHtml(busqueda)}</strong>`;
+        aviso.classList.remove("oculto");
+    }
+
     function pintar(){
-        const todos = obtenerProductos();
-        const filtrados = categoriaActiva === "todas"
-            ? todos
-            : todos.filter((p) => p.categoria ===categoriaActiva);
+        let filtrados = obtenerProductos();
+        if(categoriaActiva !== "todas"){
+            filtrados = filtrados.filter((p) => p.categoria === categoriaActiva);
+        }
+
+        if(busqueda){
+            const texto = busqueda.toLowerCase();
+            filtrados = filtrados.filter((p) => p.nombre.toLowerCase().includes(texto) || 
+            p.descripcion.toLowerCase().includes(texto));
+        }
+
         if(filtrados.length === 0){
-            contenedor.innerHTML = '<p class ="sin-resultados">No hay productos en esta categoria por el momento.</p>';
+            contenedor.innerHTML = '<p class="sin-resultados">No hay productos que coincidan con la búsqueda.</p>';
             return;
         }
 

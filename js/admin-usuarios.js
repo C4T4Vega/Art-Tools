@@ -188,7 +188,7 @@ function initFormularioUsuario(){
             nombre: campos.nombre.value.trim(),
             apellidos: campos.apellidos.value.trim(),
             correo: campos.correo.value.trim().toLowerCase(),
-            clave: campos.clave.value ? campos.clave.value : usuarioExistente.clave,
+            clave: campos.clave.value ? campos.clave.value : (usuarioExistente ? usuarioExistente.clave : ""),
             fechaNacimiento: campos.fechaNacimiento.value,
             tipoUsuario: campos.tipoUsuario.value,
             region: campos.region.value,

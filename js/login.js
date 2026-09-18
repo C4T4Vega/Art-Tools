@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () =>{
             return;
         }
 
-        const usuario = obtenerUsuarioPorCorreo(correo.ariaValueMax.trim());
+        const usuario = obtenerUsuarioPorCorreo(correo.value.trim());
 
         if(!usuario || usuario.clave !== clave.value){
             alerta.textContent = "Correo o contraseña incorrectos.";

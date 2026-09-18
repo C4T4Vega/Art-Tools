@@ -2,6 +2,12 @@
    - admin/productos.html -> listado + búsqueda + eliminar
    - admin/producto-form.html -> alta y edición con validaciones*/
 const IMG_PLACEHOLDER = "../img/productos/placeholder.jpg";
+/* las imagenes relativas se guardan en img/productos/... */
+function rutaImagenAdmin(ruta){
+    if(!ruta) return IMG_PLACEHOLDER;
+    if(/^(https?:)?\/\//.test(ruta) || ruta.startsWith("../")) return ruta;
+    return "../" + ruta;
+}
 
 function initListadoProductos(sesion){
     const tbody = document.getElementById("tbody-productos");
@@ -12,8 +18,8 @@ function initListadoProductos(sesion){
 
     function pintar(filtro = ""){
         const productos = obtenerProductos().filter((p) =>
-            p.nombre.toLowerCase().includes(filtro.toLowerCase)||
-            p.codigo.toLowerCase().includes(filtro.toLowerCase)
+            p.nombre.toLowerCase().includes(filtro.toLowerCase())||
+            p.codigo.toLowerCase().includes(filtro.toLowerCase())
         );
 
         if(productos.length === 0){
@@ -89,7 +95,7 @@ function initFormularioProducto(){
 
     const preview = document.getElementById("imagen-preview");
     function actualizarPreview(){
-        preview.src = campos.imagen.value.trim()|| IMG_PLACEHOLDER;
+        preview.src = rutaImagenAdmin(campos.imagen.value.trim());
     }
     campos.imagen.addEventListener("input", actualizarPreview);
 

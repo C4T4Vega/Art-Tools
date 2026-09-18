@@ -41,7 +41,7 @@ function renderListadoBlogs(){
                 <span class="fecha-blog">${escapeHtml(b.fecha)}</span>
                 <h2>${escapeHtml(b.titulo)}</h2>
                 <p>${escapeHtml(b.resumen)}</p>
-                <a class="btn-primario" href="blog-detalle.html?id=${b.id}">Leer más</a>
+                <a class="btn-detalle.html?id=${b.id}">Leer más</a>
             </div>
         </article>
     `).join("");

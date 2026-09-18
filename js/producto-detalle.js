@@ -24,8 +24,11 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("categoria-producto").textContent = nombreCategoria(producto.categoria);
     document.getElementById("nombre-producto").textContent = producto.nombre;
     document.getElementById("precio-producto").textContent = formatCLP(producto.precio);
-    document.getElementById("descripcion-producto-corta").textContent = producto.descripcion;
-    document.getElementById("descripcion-producto-larga").textContent = producto.descripcion;
+    /* panel lateral resumen, descripcion + abajo */
+    const descripcion = producto.descripcion || "";
+    const resumen = descripcion.length > 140 ? descripcion.slice(0, 140).trim() + "..." : descripcion;
+    document.getElementById("descripcion-producto-corta").textContent = resumen;
+    document.getElementById("descripcion-producto-larga").textContent = descripcion;
 
     const inputCantidad = document.getElementById("cantidad");
     const stockInfo = document.getElementById("stock-info");
@@ -65,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if(relacionados.length === 0){
         relacionadosCont.closest(".relacionados").classList.add("oculto");
     }else{
-        relacionadosCont.innerHTML = relacionados.map((p) =>`
+        relacionadosCont.innerHTML = relacionados.map((p) => `
                 <a href="producto.html?codigo=${encodeURIComponent(p.codigo)}" class="producto-card">
                     <img src="${p.imagen}" alt="${escapeHtml(p.nombre)}"/>
                     <h3>${escapeHtml(p.nombre)}</h3>
