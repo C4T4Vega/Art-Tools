@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("categoria-producto").textContent = nombreCategoria(producto.categoria);
     document.getElementById("nombre-producto").textContent = producto.nombre;
     document.getElementById("precio-producto").textContent = formatCLP(producto.precio);
-    /* panel lateral resumen, descripcion + abajo */
+    /* En el panel lateral va un resumen; la descripción completa va más abajo */
     const descripcion = producto.descripcion || "";
     const resumen = descripcion.length > 140 ? descripcion.slice(0, 140).trim() + "..." : descripcion;
     document.getElementById("descripcion-producto-corta").textContent = resumen;
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const mensajeCarrito = document.getElementById("mensaje-carrito");
 
     if(producto.stock <= 0){
-        stockInfo.textContent = "sin stock disponible";
+        stockInfo.textContent = "Sin stock disponible";
         stockInfo.classList.add("critico");
         inputCantidad.disabled = true;
         btnAgregar.disabled = true;
@@ -62,13 +62,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const relacionadosCont = document.getElementById("grid-relacionados");
     if(relacionadosCont){
         const relacionados = obtenerProductos()
-        .filter((p) => p.categoria === producto.categoria && p.codigo !== producto.codigo)
-        .slice(0, 4);
+            .filter((p) => p.categoria === producto.categoria && p.codigo !== producto.codigo)
+            .slice(0, 4);
 
-    if(relacionados.length === 0){
-        relacionadosCont.closest(".relacionados").classList.add("oculto");
-    }else{
-        relacionadosCont.innerHTML = relacionados.map((p) => `
+        if(relacionados.length === 0){
+            relacionadosCont.closest(".relacionados").classList.add("oculto");
+        }else{
+            relacionadosCont.innerHTML = relacionados.map((p) =>`
                 <a href="producto.html?codigo=${encodeURIComponent(p.codigo)}" class="producto-card">
                     <img src="${p.imagen}" alt="${escapeHtml(p.nombre)}"/>
                     <h3>${escapeHtml(p.nombre)}</h3>

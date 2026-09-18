@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () =>{
         const mensajeEl = document.getElementById("error-correo");
         if(!v) return marcarError(correo, mensajeEl, "El correo es obligatorio."), false;
         if (v.length > 100) return marcarError(correo, mensajeEl, "Máximo 100 caracteres"), false;
-        if (!validarDominioCorreo(v)) return marcarError(correo, mensajeEl, "Usa un correo @duoc.cl @profesor.duoc.cl o @gmail.com."), false;
+        if (!validarDominioCorreo(v)) return marcarError(correo, mensajeEl, "Usa un correo @duoc.cl, @profesor.duoc.cl o @gmail.com."), false;
         limpiarError(correo, mensajeEl);
         return true;
     }
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () =>{
         const claveValida = validarClave();
 
         if(!correoValido || !claveValida){
-            alerta.textContent = "Revisa los campos marcados en rojo."
+            alerta.textContent = "Revisa los campos marcados en rojo.";
             alerta.className = "alerta alerta-error";
             alerta.classList.remove("oculto");
             return;
@@ -56,9 +56,9 @@ document.addEventListener("DOMContentLoaded", () =>{
         alerta.className = "alerta alerta-exito";
         alerta.classList.remove("oculto");
 
-        const esStaff = usuario.tipoUsuario == "administrador" || usuario.tipoUsuario === "vendedor";
+        const esStaff = usuario.tipoUsuario === "administrador" || usuario.tipoUsuario === "vendedor";
         setTimeout(() => {
-            window.location.href =esStaff ? "admin/index.html" : "index.html";
+            window.location.href = esStaff ? "admin/index.html" : "index.html";
         }, 900);
     });
 });

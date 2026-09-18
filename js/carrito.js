@@ -4,6 +4,7 @@ const COSTO_ENVIO = 2990;
 const ENVIO_GRATIS_DESDE = 20000;
 const CLAVE_CUPON = "at_cupon";
 
+/* Reglas del carrito: cupones disponibles */
 const CUPONES = {
     ARTTOOLS10: { tipo: "porcentaje", valor: 10, texto: "10% de descuento aplicado." },
     ENVIOGRATIS: { tipo: "envio", valor: 0, texto: "Envío gratis aplicado." }
@@ -11,13 +12,14 @@ const CUPONES = {
 
 function obtenerCupon(){
     const codigo = localStorage.getItem(CLAVE_CUPON);
-    return codigo && CUPONES[codigo] ? CUPONES[codigo] : null;
+    return codigo && CUPONES[codigo] ? codigo : null;
 }
 
+/* Guarda el cupón solo si existe. Devuelve {ok, mensaje} */
 function aplicarCupon(codigoIngresado){
     const codigo = (codigoIngresado || "").trim().toUpperCase();
-    if(!codigo) return {ok: false, mensaje: "Escribe un código de cupón."};
-    if(!CUPONES[codigo]) return {ok: false, mensaje: "El cupon no es válido."};
+    if(!codigo) return {ok: false, mensaje: "Escribe un cupón."};
+    if(!CUPONES[codigo]) return {ok: false, mensaje: "El cupón no es válido."};
     localStorage.setItem(CLAVE_CUPON, codigo);
     return {ok: true, mensaje: CUPONES[codigo].texto};
 }
@@ -43,7 +45,7 @@ function guardarCarrito(items){
 
 /* suma la cantidad de unidades en el carrito y las muestra(puntito en carrito)*/
 function actualizarBadgeCarrito(){
-    const items = obternerCarrito();
+    const items = obtenerCarrito();
     const total = items.reduce((acc, it) => acc + it.cantidad, 0);
     document.querySelectorAll(".carrito-count").forEach((el) => {
         el.textContent = total;
@@ -51,12 +53,12 @@ function actualizarBadgeCarrito(){
     });
 }
 
-/* agrega unidades al carrito representando el stock (ok, mensaje)*/
+/* agrega unidades al carrito respetando el stock (ok, mensaje)*/
 function agregarAlCarrito(codigo, cantidad){
     const producto = obtenerProductoPorCodigo(codigo);
     if(!producto) return {ok: false, mensaje: "El producto ya no esta disponible."};
 
-    const items= obternerCarrito();
+    const items = obtenerCarrito();
     const existente = items.find((it) => it.codigo === codigo);
     const cantidadActual = existente ? existente.cantidad : 0;
     const nuevaCantidad = cantidadActual + cantidad;
@@ -65,7 +67,7 @@ function agregarAlCarrito(codigo, cantidad){
         return {ok: false, mensaje:"Este producto está agotado."};
     }
     if(nuevaCantidad > producto.stock){
-        return{ ok: false, mensaje:`Solo quedan ${producto.stock} unidades disponibles.`};
+        return { ok: false, mensaje:`Solo quedan ${producto.stock} unidades disponibles.`};
     }
     if(existente){
         existente.cantidad = nuevaCantidad;
@@ -79,11 +81,11 @@ function agregarAlCarrito(codigo, cantidad){
 
 function actualizarCantidadCarrito(codigo, cantidad){
     const producto = obtenerProductoPorCodigo(codigo);
-    const items = obternerCarrito();
+    const items = obtenerCarrito();
     const item = items.find((it) => it.codigo === codigo);
     if(!item) return;
 
-    let cantidadFinal = Math.max(1,cantidad);
+    let cantidadFinal = Math.max(1, cantidad);
     if(producto && cantidadFinal > producto.stock){
         cantidadFinal = producto.stock;
     }
@@ -93,7 +95,7 @@ function actualizarCantidadCarrito(codigo, cantidad){
 }
 
 function quitarDelCarrito(codigo){
-    const items = obternerCarrito().filter((it) => it.codigo !== codigo);
+    const items = obtenerCarrito().filter((it) => it.codigo !== codigo);
     guardarCarrito(items);
     if(typeof renderCarritoPagina === "function") renderCarritoPagina();
 }
@@ -104,7 +106,7 @@ function vaciarCarrito(){
 }
 
 function calcularTotalesCarrito(){
-    const items = obternerCarrito();
+    const items = obtenerCarrito();
     let subtotal = 0;
 
     items.forEach((it) => {
@@ -115,14 +117,15 @@ function calcularTotalesCarrito(){
     let envio = subtotal === 0 || subtotal >= ENVIO_GRATIS_DESDE ? 0 : COSTO_ENVIO;
     let descuento = 0;
 
-    const cupon = obtenerCupon();
+    const codigo = obtenerCupon();
     if(codigo && subtotal > 0){
         const cupon = CUPONES[codigo];
-        if(cupon.tipo === "porcentaje") descuento = Math.round(subtotal * (cupon.valor / 100));
+        if(cupon.tipo === "porcentaje") descuento = Math.round(subtotal * cupon.valor / 100);
         if(cupon.tipo === "envio") envio = 0;
     }
-    
+
     const total = subtotal - descuento + envio;
+
     return {subtotal, descuento, envio, total};
 }
 
@@ -170,11 +173,12 @@ function renderCarritoPagina(){
             input.addEventListener("change", (e) => {
                 const codigo = e.target.dataset.codigo;
                 const valor = parseInt(e.target.value, 10) || 1;
-                actualizarBadgeCarrito(codigo, valor);
+                actualizarCantidadCarrito(codigo, valor);
             });
         });
+
         contenedorLista.querySelectorAll(".eliminar").forEach((btn) => {
-            btn.addEventListener("click",() => quitarDelCarrito(btn.dataset.codigo));
+            btn.addEventListener("click", () => quitarDelCarrito(btn.dataset.codigo));
         });
     }
 
@@ -182,7 +186,7 @@ function renderCarritoPagina(){
     const elSubtotal = document.getElementById("carrito-subtotal");
     const elEnvio = document.getElementById("carrito-envio");
     const elTotal = document.getElementById("carrito-total");
-    const elDescuento = document.getElementById("fila-descuento");
+    const elDescuento = document.getElementById("carrito-descuento");
     const filaDescuento = document.getElementById("fila-descuento");
     const btnFinalizar = document.getElementById("btn-finalizar-compra");
 
@@ -234,7 +238,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             if(inputCupon) inputCupon.value = "";
             if(mensaje){
-                mensaje.textContent = "Gracias por tu compra!";
+                mensaje.textContent = "¡Gracias por tu compra!";
                 mensaje.classList.remove("oculto");
             }
         });

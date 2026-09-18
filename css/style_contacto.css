@@ -1,12 +1,14 @@
-/* CSS de contacto */
+/* ============================================================
+   CSS de contacto (contacto.html)
+   ============================================================ */
 .hero-contacto {
     background-image: url("../img/banners/banner3.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    padding: 60px 20px;
+    padding: 60px var(--espaciado-lateral);
     text-align: center;
-    color: #ffff;
+    color: var(--blanco);
     position: relative;
 }
 
@@ -14,47 +16,77 @@
     content: "";
     position: absolute;
     inset: 0;
-    background-color: rgba(0,0,0,0.45);
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
-.hero-contacto h2, .hero-contacto p {
+.hero-contacto h2,
+.hero-contacto p {
     position: relative;
     z-index: 1;
 }
 
 .hero-contacto h2 {
-    font-size: 36px;
+    font-size: 2.25rem;
     margin-bottom: 8px;
 }
 
 .seccion-contacto {
-    padding: 45px 20px 60px;
+    padding: 40px var(--espaciado-lateral) 60px;
 }
 
 .datos-contacto {
     max-width: 650px;
     margin: 0 auto 25px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 15px;
     text-align: center;
 }
 
 .datos-contacto div {
-    background-color: #ffff;
-    padding: 15px;
+    background-color: var(--blanco);
+    padding: 16px 12px;
     border-radius: 8px;
-    font-size: 14px;
+    font-size: 0.875rem;
+    word-break: break-word;
 }
 
 .datos-contacto strong {
     display: block;
-    color: #77942e;
+    color: var(--verde);
     margin-bottom: 4px;
 }
 
-@media (max-width: 600px) {
+.seccion-contacto .form-card {
+    margin-top: 0;
+}
+
+/*tablets*/
+@media (max-width: 1023px) {
+    .hero-contacto {
+        padding: 45px var(--espaciado-lateral);
+    }
+
+    .hero-contacto h2 {
+        font-size: 1.85rem;
+    }
+}
+
+/* telefono*/
+@media (max-width: 767px) {
+    .hero-contacto h2 {
+        font-size: 1.5rem;
+    }
+
+    .hero-contacto p {
+        font-size: 0.9375rem;
+    }
+
     .datos-contacto {
         grid-template-columns: 1fr;
+    }
+
+    .seccion-contacto {
+        padding: 25px var(--espaciado-lateral) 45px;
     }
 }

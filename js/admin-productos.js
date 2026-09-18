@@ -2,7 +2,9 @@
    - admin/productos.html -> listado + búsqueda + eliminar
    - admin/producto-form.html -> alta y edición con validaciones*/
 const IMG_PLACEHOLDER = "../img/productos/placeholder.jpg";
-/* las imagenes relativas se guardan en img/productos/... */
+
+/* Las imágenes se guardan relativas a la raíz del sitio ("img/productos/x.jpg"),
+   pero el panel vive en /admin/, así que hay que anteponer "../" */
 function rutaImagenAdmin(ruta){
     if(!ruta) return IMG_PLACEHOLDER;
     if(/^(https?:)?\/\//.test(ruta) || ruta.startsWith("../")) return ruta;
@@ -31,7 +33,7 @@ function initListadoProductos(sesion){
             const stockBajo = p.stockCritico != null && p.stock <= p.stockCritico;
             return `
                 <tr>
-                    <td><img class="miniatura" src="${p.imagen || IMG_PLACEHOLDER}" alt="${escapeHtml(p.nombre)}"
+                    <td><img class="miniatura" src="${rutaImagenAdmin(p.imagen)}" alt="${escapeHtml(p.nombre)}"
                         onerror="this.src='${IMG_PLACEHOLDER}'"/></td>
                     <td>${escapeHtml(p.codigo)}</td>
                     <td>${escapeHtml(p.nombre)}</td>
@@ -205,7 +207,7 @@ function initFormularioProducto(){
             stock: parseInt(campos.stock.value, 10),
             stockCritico: campos.stockCritico.value === "" ? null : parseInt(campos.stockCritico.value, 10),
             categoria: campos.categoria.value,
-            imagen: campos.imagen.value.trim() || IMG_PLACEHOLDER.replace("../","")
+            imagen: campos.imagen.value.trim() || IMG_PLACEHOLDER.replace("../", "")
         };
 
         const ok = modoEdicion
@@ -227,7 +229,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const sesion = protegerAdmin(["administrador", "vendedor"]);
     if(!sesion) return;
 
-    if ( document.getElementById("tbody-producto")) initListadoProductos(sesion);
+    if(document.getElementById("tbody-productos")) initListadoProductos(sesion);
 
     if(document.getElementById("form-producto")){
         if(sesion.tipoUsuario !== "administrador"){

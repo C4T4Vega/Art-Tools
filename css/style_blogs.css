@@ -17,20 +17,21 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: min(90%, 520px);
     text-align: center;
-    background-color: rgba(255,255,255,0.8);
-    padding: 18px 40px;
-    border-radius: 6px;
+    background-color: rgba(255, 255, 255, 0.88);
+    padding: 20px 40px;
+    border-radius: 8px;
 }
 
 .hero-content h2 {
-    font-size: 32px;
+    font-size: 2rem;
 }
 
 .lista-blogs {
     max-width: 950px;
     margin: 0 auto;
-    padding: 45px 20px 60px;
+    padding: 45px var(--espaciado-lateral) 60px;
     display: flex;
     flex-direction: column;
     gap: 25px;
@@ -39,87 +40,161 @@
 .blog-card {
     display: grid;
     grid-template-columns: 320px 1fr;
-    background-color: #ffff;
+    background-color: var(--blanco);
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .blog-card img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    background-color: #f7f7f5;
+    padding: 12px;
     min-height: 220px;
 }
 
 .blog-card-contenido {
-    padding: 25px 30px;
+    padding: 28px 32px;
     display: flex;
     flex-direction: column;
 }
 
-.blog-card-contenido h3 {
-    font-size: 22px;
+.blog-card-contenido .fecha-blog {
+    color: #888;
+    font-size: 0.8125rem;
     margin-bottom: 10px;
+    display: block;
+}
+
+.blog-card-contenido h3 {
+    font-size: 1.375rem;
+    line-height: 1.35;
+    margin-bottom: 12px;
 }
 
 .blog-card-contenido p {
-    color: #555;
-    line-height: 1.6;
-    margin-bottom: 18px;
+    color: var(--texto-suave);
+    line-height: 1.75;
+    margin-bottom: 20px;
+    font-size: 0.9375rem;
 }
 
 .blog-card-contenido a {
     margin-top: auto;
     display: inline-block;
-    padding: 9px 20px;
-    background-color: #77942e;
-    color: #ffff;
+    padding: 10px 22px;
+    background-color: var(--verde);
+    color: var(--blanco);
     border-radius: 6px;
     width: fit-content;
+    font-size: 0.875rem;
 }
 
 .blog-card-contenido a:hover {
-    background-color: #00543d;
+    background-color: var(--verde-oscuro);
 }
 
+/* Detalles*/
 .blog-detalle {
     max-width: 800px;
-    margin: 0 auto;
-    padding: 40px 20px 70px;
+    margin: 20px auto 60px;
+    padding: 35px 45px 45px;
+    background-color: var(--blanco);
+    border-radius: 10px;
+    box-shadow: var(--sombra);
 }
 
 .blog-detalle img {
     width: 100%;
-    max-height: 380px;
-    object-fit: cover;
+    height: 300px;
+    object-fit: contain;
+    background-color: #f7f7f5;
     border-radius: 10px;
-    margin-bottom: 25px;
+    padding: 12px;
+    margin-bottom: 28px;
 }
 
 .blog-detalle h2 {
-    font-size: 30px;
-    margin-bottom: 8px;
+    font-size: 2rem;
+    line-height: 1.3;
+    margin-bottom: 10px;
 }
 
 .blog-detalle .fecha-blog {
     color: #888;
-    font-size: 13px;
-    margin-bottom: 25px;
+    font-size: 0.8125rem;
+    margin-bottom: 28px;
     display: block;
 }
 
 .blog-detalle p {
-    line-height: 1.8;
+    line-height: 1.9;
+    letter-spacing: 0.15px;
     color: #333;
-    margin-bottom: 18px;
+    margin-bottom: 22px;
+    font-size: 1.0625rem;
+    text-align: justify;
 }
+/*tablets*/
+@media (max-width: 1023px) {
+    .hero-blogs {
+        height: 230px;
+    }
 
-@media (max-width: 750px) {
+    .blog-card {
+        grid-template-columns: 250px 1fr;
+    }
+
+    .blog-card-contenido {
+        padding: 22px 24px;
+    }
+}
+/*telefono*/
+@media (max-width: 767px) {
+    .hero-blogs {
+        height: 180px;
+    }
+
+    .hero-content h2 {
+        font-size: 1.4rem;
+    }
+
+    .lista-blogs {
+        padding: 28px var(--espaciado-lateral) 45px;
+        gap: 20px;
+    }
+
     .blog-card {
         grid-template-columns: 1fr;
     }
+
     .blog-card img {
         min-height: 180px;
+        max-height: 200px;
+    }
+
+    .blog-card-contenido h3 {
+        font-size: 1.15rem;
+    }
+
+    .blog-detalle {
+        margin: 16px var(--espaciado-lateral) 40px;
+        padding: 22px 20px 30px;
+    }
+
+    .blog-detalle img {
+        height: 200px;
+    }
+
+    .blog-detalle h2 {
+        font-size: 1.4rem;
+    }
+
+    .blog-detalle p {
+        font-size: 1rem;
+        line-height: 1.85;
+        text-align: left;
     }
 }

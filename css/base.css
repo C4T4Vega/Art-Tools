@@ -1,14 +1,12 @@
-/* CSS base 
-responsive para telefonos(575px 767px) tablets(768px 1023px) noteboks(1024px 1439px) desktop(1440px -)*/
-:root{
+:root {
     --verde: #77942e;
     --verde-oscuro: #00543d;
-    --verede-medio: #3a6324;
+    --verde-medio: #3a6324;
     --gris-fondo: #f0eeee;
     --blanco: #ffffff;
     --texto: #222222;
     --texto-suave: #555555;
-    -borde: #cccccc;
+    --borde: #cccccc;
     --rojo: #c0392b;
     --gris-oscuro: #3b3b3b;
 
@@ -18,22 +16,22 @@ responsive para telefonos(575px 767px) tablets(768px 1023px) noteboks(1024px 143
     --espaciado-lateral: 40px;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
 }
 
-html{
+html {
     scroll-behavior: smooth;
     font-size: 100%;
 }
 
-body{
+body {
     background-color: var(--gris-fondo);
     color: var(--texto);
-    line-height: 1.6px;
+    line-height: 1.6;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -48,7 +46,7 @@ a {
     text-decoration: none;
 }
 
-img { 
+img {
     max-width: 100%;
     display: block;
 }
@@ -56,15 +54,16 @@ img {
 h1, h2, h3, h4 {
     line-height: 1.25;
 }
-/* cabecera */
+
+/*cabecera*/
 header {
     position: sticky;
-    top: 0px;
+    top: 0;
     z-index: 1000;
 }
 
 .cabecera {
-    display: flex;;
+    display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -87,9 +86,10 @@ header {
 
 .logo h1 {
     font-size: 1.25rem;
-    color: var(--blanco)
+    color: var(--blanco);
+    padding-right:450px;
 }
-/* boton menu(solo para moviles) */
+/* Botón hamburguesa: solo visible en móvil y tablet */
 .btn-menu {
     display: none;
     flex-direction: column;
@@ -99,7 +99,7 @@ header {
     height: 44px;
     padding: 9px;
     background: none;
-    border: 1px solid rgba(255, 255, 255 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.6);
     border-radius: 6px;
     cursor: pointer;
 }
@@ -121,7 +121,7 @@ header {
 }
 
 .btn-menu[aria-expanded="true"] span:nth-child(3) {
-    transform: translateY(7px) rotate(45deg);
+    transform: translateY(-7px) rotate(-45deg);
 }
 
 .content-menu {
@@ -168,7 +168,7 @@ header {
 }
 
 .menu-categorias summary::after {
-    content: "\25BE";
+    content: " \25BE";
     font-size: 0.75rem;
 }
 
@@ -182,7 +182,7 @@ header {
     display: flex;
     flex-direction: column;
     gap: 4px;
-    background-color: var(--verede-medio);
+    background-color: var(--verde-medio);
     border: 1px solid var(--blanco);
     border-radius: var(--radio);
 }
@@ -207,7 +207,7 @@ header {
 /* Etiqueta accesible pero no visible */
 .buscar label {
     position: absolute;
-    width: 1px;;
+    width: 1px;
     height: 1px;
     padding: 0;
     overflow: hidden;
@@ -225,7 +225,7 @@ header {
     font-size: 0.875rem;
 }
 
-.buscar img{
+.buscar img {
     width: 20px;
     height: 20px;
     flex-shrink: 0;
@@ -240,12 +240,12 @@ header {
     flex-wrap: wrap;
 }
 
-.auth-area a{ 
+.auth-area a {
     color: var(--blanco);
 }
 
 .auth-area a:hover,
-.auth.area button:hover {
+.auth-area button:hover {
     text-decoration: underline;
 }
 
@@ -279,7 +279,7 @@ header {
     flex-shrink: 0;
 }
 
-.carrito-nav img{
+.carrito-nav img {
     width: 30px;
     height: 30px;
 }
@@ -300,7 +300,13 @@ header {
     justify-content: center;
     padding: 0 2px;
 }
-/* enlace volver */
+/* volver */
+.volver-cont {
+    max-width: var(--ancho-max);
+    margin: 0 auto;
+    padding: 18px var(--espaciado-lateral) 0;
+}
+
 .volver {
     display: inline-flex;
     align-items: center;
@@ -318,8 +324,8 @@ header {
 }
 
 .volver img {
-    font-family: inherit;
-    cursor: pointer;
+    width: 26px;
+    height: auto;
 }
 /* botones */
 button {
@@ -343,8 +349,8 @@ button {
     background-color: var(--verde-oscuro);
 }
 
-.btn-secundario{
-    display: inline-block;;
+.btn-secundario {
+    display: inline-block;
     padding: 12px 25px;
     background-color: var(--blanco);
     color: var(--verde);
@@ -410,7 +416,7 @@ button {
 
 .campo {
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     margin-bottom: 18px;
     text-align: left;
     min-width: 0;
@@ -426,7 +432,7 @@ button {
     font-size: 0.875rem;
 }
 
-.campo .opcional-tag{
+.campo .opcional-tag {
     font-weight: normal;
     color: #888;
     font-size: 0.75rem;
@@ -435,7 +441,7 @@ button {
 
 .campo input,
 .campo select,
-.campo textarea { 
+.campo textarea {
     width: 100%;
     max-width: 100%;
     padding: 11px;
@@ -466,7 +472,7 @@ button {
     background-color: #fdf1f0;
 }
 
-.mensaje-error{
+.mensaje-error {
     color: var(--rojo);
     font-size: 0.78rem;
     margin-top: 5px;
@@ -493,14 +499,14 @@ button {
     background-color: var(--verde);
     color: var(--blanco);
     font-size: 0.9375rem;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .form-acciones button:hover {
     background-color: var(--verde-oscuro);
 }
 /* alertas */
-.alerta{
+.alerta {
     padding: 12px 16px;
     border-radius: 6px;
     margin-bottom: 20px;
@@ -535,7 +541,7 @@ button {
     color: var(--verde-oscuro);
     font-weight: bold;
 }
-/* pie de pagina */
+/* footer */
 footer {
     background-color: var(--gris-oscuro);
     color: var(--blanco);
@@ -560,7 +566,7 @@ footer {
 }
 
 .footer-logo h2 {
-    font-size: 1.1225rem;
+    font-size: 1.125rem;
 }
 
 .footer-nav {
@@ -595,18 +601,18 @@ footer > p {
     margin: 20px auto 0;
     text-align: center;
     padding-top: 15px;
-    border-top: 1p solid rgba(255, 255, 255 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
     font-size: 0.875rem;
 }
-/* utilidades */
-.oculto{
+/*Utilidades*/
+.oculto {
     display: none !important;
 }
 
 .texto-centro {
     text-align: center;
 }
-/* visible solo para lectores de pantalla */
+/* Visible solo para lectores de pantalla */
 .solo-lectores {
     position: absolute;
     width: 1px;
@@ -617,7 +623,7 @@ footer > p {
     white-space: nowrap;
     border: 0;
 }
-/* responsive para notebook(hasta 1439px)  */
+/* notebooks */
 @media (max-width: 1439px) {
     :root {
         --espaciado-lateral: 30px;
@@ -636,7 +642,7 @@ footer > p {
         width: 150px;
     }
 }
-/*responsive para tablet(hasta 1039px(menu hamburguesa)*/
+/* tablets(apararece menu hamburguesa */
 @media (max-width: 1023px) {
     :root {
         --espaciado-lateral: 24px;
@@ -660,8 +666,7 @@ footer > p {
         padding-top: 12px;
         border-top: 1px solid rgba(255, 255, 255, 0.35);
     }
-
-    /* La clase la activa js/nav.js al pulsar el botón */
+/* La clase la activa js/nav.js al pulsar el botón */
     .content-menu.abierto {
         display: flex;
     }
@@ -688,8 +693,7 @@ footer > p {
     .menu-categorias {
         width: 100%;
     }
-
-    /* En móvil el submenú se despliega dentro del flujo, no flotando */
+/* En móvil el submenú se despliega dentro del flujo, no flotando */
     .submenu {
         position: static;
         width: 100%;
@@ -716,7 +720,7 @@ footer > p {
         padding-bottom: 8px;
     }
 }
-/* telefono grande- tablet vertical(hasta 767pxx) */
+/* tablets y telefonos */
 @media (max-width: 767px) {
     :root {
         --espaciado-lateral: 16px;
@@ -745,7 +749,7 @@ footer > p {
         gap: 35px;
     }
 }
-/*Telefono(hasta 575px) */
+/* telefonos */
 @media (max-width: 575px) {
     .logo img {
         width: 52px;
@@ -779,7 +783,7 @@ footer > p {
         gap: 12px;
     }
 }
-/* desktop (hasta 1440px) */
+/* desktop */
 @media (min-width: 1440px) {
     :root {
         --espaciado-lateral: 60px;
@@ -787,11 +791,11 @@ footer > p {
 
     .cabecera,
     .footer-cont {
-        max-width: 1600px;
+        max-width: 1900px;
         margin: 0 auto;
     }
 }
-/* Componentes compartidos (tarjetas de producto) por index, productos y relacionados */
+/* componentes compartidos: tarjetas de productos */
 .productos-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -800,7 +804,7 @@ footer > p {
     margin: 0 auto;
 }
 
-.producto-card{
+.producto-card {
     padding: 20px;
     border: 1px solid #e6e2dc;
     border-radius: 10px;
@@ -823,7 +827,7 @@ footer > p {
     margin: 0 auto;
 }
 
-.producto-card .categorias-tag {
+.producto-card .categoria-tag {
     font-size: 0.6875rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -844,11 +848,11 @@ footer > p {
     margin-top: auto;
 }
 
-.producto-card .stock-agotdo{
+.producto-card .stock-agotado {
     font-size: 0.75rem;
     color: #b23a3a;
     font-weight: bold;
-    margin-bottom:10px ;
+    margin-bottom: 10px;
 }
 
 .producto-card button {
@@ -871,15 +875,16 @@ footer > p {
 }
 
 .sin-resultados {
-    grid-column: 1 /-1;
+    grid-column: 1 / -1;
     text-align: center;
     padding: 40px;
     color: #777;
 }
 
-/* grilla de productos x pantalla */
+/* grilla de productos por tamaño de pantalla */
 @media (max-width: 1439px) {
     .productos-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .logo h1 {padding-right: 30px;}
 }
 
 @media (max-width: 1023px) {

@@ -2,7 +2,7 @@
 function tarjetaProductoHTML(p) {
     const agotado = p.stock <= 0;
     return`
-        <article class = "producto-card" data-codigo = "${p.codigo}">
+        <article class="producto-card" data-codigo="${p.codigo}">
             <a href="producto.html?codigo=${encodeURIComponent(p.codigo)}">
                 <img src="${p.imagen}" alt="${escapeHtml(p.nombre)}"/>
                 <p class="categoria-tag">${escapeHtml(nombreCategoria(p.categoria))}</p>
@@ -42,9 +42,10 @@ function renderListadoProductos(){
 
     const chips = document.querySelectorAll(".chip-categoria");
     const categoriaUrl = getQueryParam("categoria");
-    const busqueda = (getQueryParam("q")|| "").trim();
+    const busqueda = (getQueryParam("q") || "").trim();
     let categoriaActiva = categoriaUrl || "todas";
 
+    /* Aviso cuando se llega desde el buscador de la cabecera */
     const aviso = document.getElementById("aviso-busqueda");
     if(aviso && busqueda){
         aviso.innerHTML = `Resultados para <strong>${escapeHtml(busqueda)}</strong>`;
@@ -53,18 +54,21 @@ function renderListadoProductos(){
 
     function pintar(){
         let filtrados = obtenerProductos();
+
         if(categoriaActiva !== "todas"){
             filtrados = filtrados.filter((p) => p.categoria === categoriaActiva);
         }
 
         if(busqueda){
             const texto = busqueda.toLowerCase();
-            filtrados = filtrados.filter((p) => p.nombre.toLowerCase().includes(texto) || 
-            p.descripcion.toLowerCase().includes(texto));
+            filtrados = filtrados.filter((p) =>
+                p.nombre.toLowerCase().includes(texto) ||
+                (p.descripcion || "").toLowerCase().includes(texto)
+            );
         }
 
         if(filtrados.length === 0){
-            contenedor.innerHTML = '<p class="sin-resultados">No hay productos que coincidan con la búsqueda.</p>';
+            contenedor.innerHTML = '<p class="sin-resultados">No hay productos que coincidan con tu búsqueda.</p>';
             return;
         }
 

@@ -37,11 +37,11 @@ function renderListadoBlogs(){
     contenedor.innerHTML = BLOGS.map((b) => `
         <article class="blog-card">
             <img src="${b.imagen}" alt="${escapeHtml(b.titulo)}"/>
-            <div class="blog-card-info">
+            <div class="blog-card-contenido">
                 <span class="fecha-blog">${escapeHtml(b.fecha)}</span>
-                <h2>${escapeHtml(b.titulo)}</h2>
+                <h3>${escapeHtml(b.titulo)}</h3>
                 <p>${escapeHtml(b.resumen)}</p>
-                <a class="btn-detalle.html?id=${b.id}">Leer más</a>
+                <a href="blog-detalle.html?id=${b.id}">Ver caso</a>
             </div>
         </article>
     `).join("");
@@ -51,7 +51,7 @@ function renderDetalleBlogs(){
     const contenedor = document.getElementById("blog-detalle-contenido");
     if(!contenedor) return;
 
-    const id = parseInt(getQueryParam("id"),10);
+    const id = parseInt(getQueryParam("id"), 10);
     const blog = BLOGS.find((b) => b.id === id) || BLOGS[0];
 
     document.title = `Art Tools - ${blog.titulo}`;

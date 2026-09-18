@@ -46,7 +46,7 @@ function validarRun(run){
     let multiplo = 2;
     for(let i = cuerpo.length - 1; i >= 0; i--){
         suma += parseInt(cuerpo[i],10) * multiplo;
-        multiplo = multiplo < 7? multiplo + 1 : 2;
+        multiplo = multiplo < 7 ? multiplo + 1 : 2;
     }
 
     const resto = 11 - (suma % 11);
