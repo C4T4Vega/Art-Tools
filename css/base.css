@@ -87,7 +87,6 @@ header {
 .logo h1 {
     font-size: 1.25rem;
     color: var(--blanco);
-    padding-right:450px;
 }
 /* Botón hamburguesa: solo visible en móvil y tablet */
 .btn-menu {
@@ -884,7 +883,6 @@ footer > p {
 /* grilla de productos por tamaño de pantalla */
 @media (max-width: 1439px) {
     .productos-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-    .logo h1 {padding-right: 30px;}
 }
 
 @media (max-width: 1023px) {
