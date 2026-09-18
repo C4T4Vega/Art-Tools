@@ -19,17 +19,42 @@
                     <h1>Art Tools</h1>
                 </a>
             </div>
-            <div class="content-menu">
+            <div class="acciones-cabecera">
+                <a class="carrito-nav" href="carrito.html" aria-label="Ver carrito de compras">
+                    <img src="img/carrito-de-compras.png" alt="">
+                    <span class="carrito-count oculto">0</span>
+                </a>
+                <button type="button" class="btn-menu" id="btn-menu" aria-label="Abrir menú" aria-expanded="false" aria-controls="content-menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+            <div class="content-menu" id="content-menu">
                 <ul class="menu">
                     <li><a href="index.html">Inicio</a></li>
+                    <li class="menu-categorias">
+                        <details>
+                            <summary>Categorías</summary>
+                            <ul class="submenu">
+                                <li><a href="productos.html?categoria=escolar">Escolar</a></li>
+                                <li><a href="productos.html?categoria=oficina">Oficina</a></li>
+                                <li><a href="productos.html?categoria=papeleria">Papelería</a></li>
+                                <li><a href="productos.html?categoria=tecnicas">Técnicas varias</a></li>
+                            </ul>
+                        </details>
+                    </li>
                     <li><a href="productos.html">Productos</a></li>
+                    <li><a href="blogs.html">Blogs</a></li>
                     <li><a href="informacion.html">Nosotros</a></li>
                     <li><a href="contacto.html">Contacto</a></li>
                 </ul>
-                <a class="carrito-nav" href="carrito.html">
-                    <img src="img/carrito-de-compras.png" alt="Carrito">
-                    <span class="carrito-count oculto">0</span>
-                </a>
+                <div class="buscar">
+                    <form action="productos.html" method="get" role="search">
+                        <img src="img/lupa.png" alt="" aria-hidden="true">
+                        <label for="busqueda">Buscar productos</label>
+                        <input type="search" id="busqueda" name="q" placeholder="Pinturas acrílicas">
+                    </form>
+                </div>
+                <div class="auth-area" id="auth-area"></div>
             </div>
         </nav>
     </header>
@@ -49,13 +74,13 @@
                         <span class="mensaje-error" id="error-run"></span>
                     </div>
                     <div class="campo">
-                        <label for="nombre">Nombre Completo</label>
+                        <label for="nombre">Nombre</label>
                         <input type="text" id="nombre" name="nombre" placeholder="Nombre" maxlength="50">
                         <span class="mensaje-error" id="error-nombre"></span>
                     </div>
                     <div class="campo">
                         <label for="apellidos">Apellidos</label>
-                        <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos" maxlength="50">
+                        <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos" maxlength="100">
                         <span class="mensaje-error" id="error-apellidos"></span>
                     </div>
                     <div class="campo">
@@ -67,6 +92,11 @@
                         <label for="clave">Contraseña</label>
                         <input type="password" id="clave" name="clave" placeholder="Entre 4 y 10 caracteres" maxlength="10">
                         <span class="mensaje-error" id="error-clave"></span>
+                    </div>
+                    <div class="campo">
+                        <label for="confirmar-clave">Confirmar contraseña</label>
+                        <input type="password" id="confirmar-clave" name="confirmar-clave" maxlength="10">
+                        <span class="mensaje-error" id="error-confirmarClave"></span>
                     </div>
                     <div class="campo">
                         <label for="telefono">Teléfono<span class="opcional-tag">(opcional)</span></label>
@@ -96,7 +126,7 @@
                 <div class="form-acciones">
                     <button type="submit">Registrar</button>
                 </div>
-                <p class="form-enlace-secundario">¿Ya tienes cuenta? <a href="login.html">Inicia sesión aquí</a></p>
+                <p class="form-enlace-secundario">¿Ya tienes cuenta? <a href="login.html"> Inicia sesión aquí</a></p>
             </form>
         </section>
     </main>
@@ -106,11 +136,19 @@
                 <img src="img/artTools_v2.png" alt="logo art tools">
                 <h2>Art Tools</h2>
             </a>
-            <ul>
-                <li><a href="informacion.html">Nosotros</a></li>
-                <li><a href="contacto.html">Contáctanos</a></li>
-                <li><a href="blogs.html">Blog</a></li>
-            </ul>
+            <nav class="footer-nav" aria-label="Enlaces del pie de página">
+                <ul>
+                    <li><a href="productos.html?categoria=escolar">Escolar</a></li>
+                    <li><a href="productos.html?categoria=oficina">Oficina</a></li>
+                    <li><a href="productos.html?categoria=papeleria">Papelería</a></li>
+                    <li><a href="productos.html?categoria=tecnicas">Técnicas varias</a></li>
+                </ul>
+                <ul>
+                    <li><a href="informacion.html">Nosotros</a></li>
+                    <li><a href="contacto.html">Contáctanos</a></li>
+                    <li><a href="blogs.html">Blog</a></li>
+                </ul>
+            </nav>
         </div>
         <p>&copy; 2026 Art Tools</p> 
     </footer>
@@ -121,5 +159,6 @@
     <script src="js/auth.js"></script>
     <script src="js/carrito.js"></script>
     <script src="js/registro.js"></script>
+    <script src="#"></script>
 </body>
 </html>

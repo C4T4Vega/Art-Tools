@@ -19,17 +19,42 @@
                     <h1>Art Tools</h1>
                 </a>
             </div>
-            <div class="content-menu">
+            <div class="acciones-cabecera">
+                <a class="carrito-nav" href="carrito.html" aria-label="Ver carrito de compras">
+                    <img src="img/carrito-de-compras.png" alt="">
+                    <span class="carrito-count oculto">0</span>
+                </a>
+                <button type="button" class="btn-menu" id="btn-menu" aria-label="Abrir menú" aria-expanded="false" aria-controls="content-menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+            <div class="content-menu" id="content-menu">
                 <ul class="menu">
                     <li><a href="index.html">Inicio</a></li>
+                    <li class="menu-categorias">
+                        <details>
+                            <summary>Categorías</summary>
+                            <ul class="submenu">
+                                <li><a href="productos.html?categoria=escolar">Escolar</a></li>
+                                <li><a href="productos.html?categoria=oficina">Oficina</a></li>
+                                <li><a href="productos.html?categoria=papeleria">Papelería</a></li>
+                                <li><a href="productos.html?categoria=tecnicas">Técnicas varias</a></li>
+                            </ul>
+                        </details>
+                    </li>
                     <li><a href="productos.html">Productos</a></li>
+                    <li><a href="blogs.html">Blogs</a></li>
                     <li><a href="informacion.html">Nosotros</a></li>
                     <li><a href="contacto.html">Contacto</a></li>
                 </ul>
-                <a class="carrito-nav" href="carrito.html">
-                    <img src="img/carrito-de-compras.png" alt="Carrito">
-                    <span class="carrito-count oculto">0</span>
-                </a>
+                <div class="buscar">
+                    <form action="productos.html" method="get" role="search">
+                        <img src="img/lupa.png" alt="" aria-hidden="true">
+                        <label for="busqueda">Buscar productos</label>
+                        <input type="search" id="busqueda" name="q" placeholder="Pinturas acrílicas">
+                    </form>
+                </div>
+                <div class="auth-area" id="auth-area"></div>
             </div>
         </nav>
     </header>
@@ -60,7 +85,7 @@
                 <div class="form-acciones">
                     <button type="submit">Iniciar sesión</button>
                 </div>
-                <p class="form-enlace-secundario">¿Aún no tienes cuenta? <a href="registro.html">Registrate aquí</a></p>
+                <p class="form-enlace-secundario">¿Aún no tienes cuenta? <a href="registro.html"> Registrate aquí</a></p>
             </form>
         </section>
     </main>
@@ -70,11 +95,19 @@
                 <img src="img/artTools_v2.png" alt="logo art tools">
                 <h2>Art Tools</h2>
             </a>
-            <ul>
-                <li><a href="informacion.html">Nosotros</a></li>
-                <li><a href="contacto.html">Contáctanos</a></li>
-                <li><a href="blogs.html">Blog</a></li>
-            </ul>
+            <nav class="footer-nav" aria-label="Enlaces del pie de página">
+                <ul>
+                    <li><a href="productos.html?categoria=escolar">Escolar</a></li>
+                    <li><a href="productos.html?categoria=oficina">Oficina</a></li>
+                    <li><a href="productos.html?categoria=papeleria">Papelería</a></li>
+                    <li><a href="productos.html?categoria=tecnicas">Técnicas varias</a></li>
+                </ul>
+                <ul>
+                    <li><a href="informacion.html">Nosotros</a></li>
+                    <li><a href="contacto.html">Contáctanos</a></li>
+                    <li><a href="blogs.html">Blog</a></li>
+                </ul>
+            </nav>
         </div>
         <p>&copy; 2026 Art Tools</p>
     </footer>
@@ -85,5 +118,6 @@
     <script src="js/auth.js"></script>
     <script src="js/carrito.js"></script>
     <script src="js/login.js"></script>
+    <script src="#"></script>
 </body>
 </html>

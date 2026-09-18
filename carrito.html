@@ -19,7 +19,16 @@
                     <h1>Art Tools</h1>
                 </a>
             </div>
-            <div class="content-menu">
+            <div class="acciones-cabecera">
+                <a class="carrito-nav" href="carrito.html" aria-label="Ver carrito de compras">
+                    <img src="img/carrito-de-compras.png" alt="">
+                    <span class="carrito-count oculto">0</span>
+                </a>
+                <button type="button" class="btn-menu" id="btn-menu" aria-label="Abrir menú" aria-expanded="false" aria-controls="content-menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+            <div class="content-menu" id="content-menu">
                 <ul class="menu">
                     <li><a href="index.html">Inicio</a></li>
                     <li class="menu-categorias">
@@ -39,24 +48,20 @@
                     <li><a href="contacto.html">Contacto</a></li>
                 </ul>
                 <div class="buscar">
-                    <form action="/busqueda" method="get">
+                    <form action="productos.html" method="get" role="search">
                         <img src="img/lupa.png" alt="" aria-hidden="true">
-                        <label for="busqueda">Buscar</label>
-                        <input type="text" id="busqueda"
-                            name="barraBusqueda" placeholder="Pinturas acrilicas">
+                        <label for="busqueda">Buscar productos</label>
+                        <input type="search" id="busqueda"
+                            name="q" placeholder="Pinturas acrilicas">
                     </form>
                 </div>
                 <div class="auth-area" id="auth-area"></div>
-                <a class="carrito-nav" href="carrito.html">
-                    <img src="img/carrito-de-compras.png" alt="Carrito">
-                    <span class="carrito-count oculto">0</span>
-                </a>
             </div>
         </nav>
     </header>    
     <main>
-        <div class="volver">
-            <a class="volver" href="productos.html">
+        <div class="volver-cont">
+            <a class="volver" href="productos.html" data-volver>
                 <img src="img/flecha.png" alt="regresar">Volver
             </a>
         </div>
@@ -73,17 +78,28 @@
                 <aside class="resumen-carrito">
                     <h2>Resumen de compra</h2>
                     <div class="subtotal">
-                        <span>Subtotal 1</span>
+                        <span>Subtotal</span>
                         <span id="carrito-subtotal">$0</span>
                     </div>
                     <div class="envio">
                         <span>Envío</span>
                         <span id="carrito-envio">$0</span>
                     </div>
+                    <p class="nota-envio">Envío gratis en compras sobre $20.000.</p>
+                    <div class="descuento oculto" id="fila-descuento">
+                        <span>Descuento</span>
+                        <span id="carrito-descuento">$0</span>
+                    </div>
                     <div class="total">
                         <span>Total</span>
                         <strong id="carrito-total">$0</strong>
                     </div>
+                    <div class="cupon">
+                        <label class="solo-lectores" for="input-cupon">Cupón de descuentos</label>
+                        <input type="text" id="input-cupon" placeholder="Ingresa tu cupón">
+                        <button type="button" id="btn-aplicar-cupon">Aplicar</button>
+                    </div>
+                    <p class="mensaje-cupon" id="mensaje-cupon"></p>
                     <button type="button" class="finalizar" id="btn-finalizar-compra">Finalizar compra</button>
                     <p class="mensaje-carrito oculto" id="mensaje-compra"></p>
                 </aside>
@@ -96,11 +112,19 @@
                 <img src="img/artTools_v2.png" alt="logo art tools">
                 <h2>Art Tools</h2>
             </a>
-            <ul>
-                <li><a href="informacion.html">Nosotros</a></li>
-                <li><a href="contacto.html">Contáctanos</a></li>
-                <li><a href="blogs.html">Blog</a></li>
-            </ul>
+            <nav class="footer-nav" aria-label="Enlaces del pie de página">
+                <ul>
+                    <li><a href="productos.html?categoria=escolar">Escolar</a></li>
+                    <li><a href="productos.html?categoria=oficina">Oficina</a></li>
+                    <li><a href="productos.html?categoria=papeleria">Papelería</a></li>
+                    <li><a href="productos.html?categoria=tecnicas">Técnicas varias</a></li>
+                </ul>
+                <ul>
+                    <li><a href="informacion.html">Nosotros</a></li>
+                    <li><a href="contacto.html">Contáctanos</a></li>
+                    <li><a href="blogs.html">Blog</a></li>
+                </ul>
+            </nav>
         </div>
         <p>&copy; 2026 Art Tools</p>
     </footer>
@@ -110,5 +134,6 @@
     <script src="js/usuarios-data.js"></script>
     <script src="js/auth.js"></script>
     <script src="js/carrito.js"></script>
+    <script src="#"></script>
 </body>
 </html>
